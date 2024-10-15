@@ -46,6 +46,9 @@ function snacklab_theme_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+	// Cropping to banner image in Catering/Products Page
+	add_image_size( 'hero-banner', 1792, 550, array( 'center', 'center' ) );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
