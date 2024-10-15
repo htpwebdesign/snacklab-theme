@@ -160,8 +160,36 @@ function snacklab_theme_scripts()
 		wp_enqueue_script('swiper-scripts', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), '7.4.1', array('strategy' => 'defer'));
 		wp_enqueue_script('swiper-settings', get_template_directory_uri() . '/js/swiper-settings.js', array('swiper-scripts'), _S_VERSION, array('strategy' => 'defer'));
 	}
+
+	// Enqueue IsotopeJS
+	wp_enqueue_script(
+		'isotope-js',
+		get_stylesheet_directory_uri() . '/js/isotope.pkgd.min.js',
+		array('jquery'), // Dependencies
+		'3.0.6', // Version of IsotopeJS
+		true // Load in footer
+	);
+
+	// Enqueue custom filter script
+	wp_enqueue_script(
+		'your-theme-child-filter',
+		get_stylesheet_directory_uri() . '/js/filter.js',
+		array('isotope-js', 'jquery'), // Dependencies
+		'1.0',
+		true // Load in footer
+	);
+
+	// Enqueue custom styles for filter menu and grid (Optional)
+	wp_enqueue_style(
+		'your-theme-child-filter-style',
+		get_stylesheet_directory_uri() . '/css/filter.css',
+		array(),
+		'1.0'
+	);
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
+
+
 
 /**
  * Implement the Custom Header feature.
