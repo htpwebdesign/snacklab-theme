@@ -95,6 +95,53 @@ get_header();
 		echo '</div>';
 	}
 
+	// ACF repeater field 'testimonials'
+
+	// ACF field 'review_section_title'
+	$review_section_title = get_field('review_section_title');
+
+	if ($review_section_title) {
+		echo '<div class="review-section-title">';
+		echo '<h2>' . esc_html($review_section_title) . '</h2>';
+		echo '</div>';
+	}
+
+
+	if (have_rows('reviews')) {
+		echo '<div class="reviews">';
+		while (have_rows('reviews')) {
+			the_row();
+			$review_name = get_sub_field('review_name');
+			$review_content = get_sub_field('review_content');
+			$review_stars = get_sub_field('review_stars');
+
+			echo '<div class="review">';
+			if ($review_name) {
+				echo '<h3>' . esc_html($review_name) . '</h3>';
+			}
+			if ($review_content) {
+				echo '<p>' . esc_html($review_content) . '</p>';
+			}
+			if ($review_stars) {
+				echo '<div class="review-stars">';
+				for ($i = 0; $i < $review_stars; $i++) {
+					echo '<span class="star">&#9733;</span>'; // Unicode star character
+				}
+				echo '</div>';
+			}
+			echo '</div>';
+		}
+		echo '</div>';
+	}
+
+	// ACF CTA
+	$review_cta = get_field('review_cta');
+
+	if ($review_cta) {
+		echo '<div class="review-cta">';
+		echo '<h2>' . esc_html($review_cta) . '</h2>';
+		echo '</div>';
+	}
 	?>
 
 	<?php
