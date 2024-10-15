@@ -12,19 +12,37 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'snacklab-theme' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'snacklab-theme' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'snacklab-theme' ), 'snacklab-theme', '<a href="https://projects.bcitwebdeveloper.ca/">FWD 38</a>' );
-				?>
-		</div><!-- .site-info -->
+		<section>
+			<?php the_custom_logo(); ?>
+			<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+		</section> <!-- Logo / link to home -->
+
+		<section>
+			<div class="footer-nav-menu">
+				<h2>Navigate The Lab</h2>
+				<nav class='footer-navigation'>
+					<?php
+						wp_nav_menu( array( 'theme_location' => 'footer-navigation' ) );
+						?>
+				</nav>
+			</div>
+			<div class='footer-social-menu'>
+				<h2>Stay Connected</h2>
+				<nav class='footer-navigation'>
+					<?php
+						wp_nav_menu( array( 'theme_location' => 'footer-social-links' ) );
+						?>
+				</nav>
+			</div>
+		</section> <!-- .footer-menus -->
+
+		<section class="site-info">
+			<?php
+			printf( esc_html__( '©2024 Snack Lab. All rights reserved | ', 'snacklab-theme' ), 'snacklab-theme' );
+			the_privacy_policy_link();
+			printf( esc_html__( ' | Created by Marc, Gustavo, Haw Haw and Kaleb!', 'snacklab-theme' ), 'snacklab-theme' );
+			?>
+		</section><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
