@@ -41,6 +41,11 @@ do_action('woocommerce_shop_loop_header');
 // Add the filter menu here
 ?>
 <!-- Filter Menu -->
+ <?php
+if ( has_post_thumbnail() ) {
+					the_post_thumbnail();
+				}
+				?>
 <div class="filter-menu">
 	<button class="filter-button active" data-filter="*">All Items</button>
 	<?php
