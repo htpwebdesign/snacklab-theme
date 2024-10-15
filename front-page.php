@@ -30,17 +30,22 @@ get_header();
 	//ACF hero_gallery field
 	$hero_gallery = get_field('hero_gallery');
 	if ($hero_gallery) {
-		echo '<div class="hero-slider-container">';
+		echo '<div class="swiper">';
+		echo '<div class="swiper-wrapper">';
 		foreach ($hero_gallery as $image) {
-			echo '<div class="hero-slide">';
+			echo '<div class="swiper-slide">';
 			echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
 			echo '</div>';
 		}
 		echo '</div>';
 		// Pagination
 		echo '<div class="swiper-pagination"></div>';
-		echo '<div class="swiper-button-next"></div>';
+		// Navigation buttons
 		echo '<div class="swiper-button-prev"></div>';
+		echo '<div class="swiper-button-next"></div>';
+		// Scrollbar
+		echo '<div class="swiper-scrollbar"></div>';
+		echo '</div>';
 	}
 
 

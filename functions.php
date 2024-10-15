@@ -154,6 +154,12 @@ function snacklab_theme_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+	if (is_front_page()) {
+		wp_enqueue_style('swiper-styles', get_template_directory_uri() . '/css/swiper-bundle.css', array(), '7.4.1');
+		wp_enqueue_script('swiper-scripts', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), '7.4.1', array('strategy' => 'defer'));
+		wp_enqueue_script('swiper-settings', get_template_directory_uri() . '/js/swiper-settings.js', array('swiper-scripts'), _S_VERSION, array('strategy' => 'defer'));
+	}
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
 
@@ -195,19 +201,3 @@ if (class_exists('WooCommerce')) {
  * Custom Post Types
  */
 require get_template_directory() . '/inc/cpt.php';
-
-
-// Enqueue Swiper.js Assets
-
-function enqueue_swiperjs_assets()
-{
-	// Enqueue Swiper's CSS from CDN
-	wp_enqueue_style('swiper-css', 'https://unpkg.com/swiper@9/swiper-bundle.min.css', array(), '9.0.0');
-
-	// Enqueue Swiper's JS from CDN
-	wp_enqueue_script('swiper-js', 'https://unpkg.com/swiper@9/swiper-bundle.min.js', array(), '9.0.0', true);
-
-	// Enqueue Custom Swiper Initialization Script
-	wp_enqueue_script('custom-swiper-init', get_stylesheet_directory_uri() . '/js/swiper-init.js', array('swiper-js'), '1.0.0', true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_swiperjs_assets');
