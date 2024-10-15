@@ -67,6 +67,34 @@ get_header();
 		echo '</div>';
 	}
 
+	// ACF repeater field 'cards'
+	if (have_rows('cards')) {
+		echo '<div class="cards">';
+		while (have_rows('cards')) {
+			the_row();
+			$card_image = get_sub_field('card_image');
+			$card_title = get_sub_field('card_title');
+			$card_description = get_sub_field('card_description');
+			$card_link = get_sub_field('card_link');
+
+			echo '<div class="card">';
+			if ($card_image) {
+				echo '<img src="' . esc_url($card_image['url']) . '" alt="' . esc_attr($card_image['alt']) . '">';
+			}
+			if ($card_title) {
+				echo '<h2>' . esc_html($card_title) . '</h2>';
+			}
+			if ($card_description) {
+				echo '<p>' . esc_html($card_description) . '</p>';
+			}
+			if ($card_link) {
+				echo '<a href="' . esc_url($card_link['url']) . '">' . esc_html($card_link['title']) . '</a>';
+			}
+			echo '</div>';
+		}
+		echo '</div>';
+	}
+
 	?>
 
 	<?php
