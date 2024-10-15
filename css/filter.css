@@ -1,0 +1,64 @@
+/* Filter Menu Styles */
+.filter-menu {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Products Grid Styles */
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  width: 30%;
+  margin: 10px;
+  box-sizing: border-box;
+  /* Adjust as needed */
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Optional: Adjust product-item transition for smoother animations */
+.isotope-hidden {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.isotope-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .product-item {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    width: 100%;
+  }
+}
