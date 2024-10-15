@@ -15,7 +15,9 @@
 
 get_header();
 ?>
+
 <main id="primary" class="site-main">
+
 	<?php
 	while (have_posts()) :
 		the_post();
@@ -25,7 +27,13 @@ get_header();
 				<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 			</header><!-- .entry-header -->
 
-			<?php snacklab_theme_post_thumbnail(); ?>
+			<?php
+			if (has_post_thumbnail()) {
+				the_post_thumbnail();
+			}
+			?>
+
+
 			<div class="entry-content">
 				<?php
 				the_content();
@@ -41,7 +49,8 @@ get_header();
 					?>
 				</div>
 			</div><!-- .entry-content -->
-		</article><!-- #post-<?php the_ID(); ?> -->
+
+		</article>
 	<?php
 	endwhile; // End of the loop.
 	?>
