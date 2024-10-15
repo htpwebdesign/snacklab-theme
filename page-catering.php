@@ -44,6 +44,8 @@ get_header();
 					if ($images) {
 						foreach ($images as $image) {
 							echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
+							echo '<div class="description">' . esc_html($image['description']) . '</div>'; // Display Description
+							echo '</div>';
 						}
 					}
 					?>
