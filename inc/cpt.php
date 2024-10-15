@@ -46,6 +46,6 @@ function snacklab_register_custom_post_types() {
         'menu_icon'          => 'dashicons-groups',
         'supports'           => array( 'title', 'thumbnail' ),
     );
-    register_post_type( 'snacklab-projects', $args );
+    register_post_type( 'snacklab-careers', $args );
 }
 add_action( 'init', 'snacklab_register_custom_post_types' );
