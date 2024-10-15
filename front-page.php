@@ -27,6 +27,22 @@ get_header();
 
 	<?php
 
+	while (have_posts()) :
+		the_post();
+
+		get_template_part('template-parts/content', 'page');
+
+		// If comments are open or we have at least one comment, load up the comment template.
+		if (comments_open() || get_comments_number()) :
+			comments_template();
+		endif;
+
+	endwhile; // End of the loop.
+	?>
+
+
+	<?php
+
 	//ACF hero_gallery field
 	$hero_gallery = get_field('hero_gallery');
 	if ($hero_gallery) {
@@ -142,21 +158,6 @@ get_header();
 		echo '<h2>' . esc_html($review_cta) . '</h2>';
 		echo '</div>';
 	}
-	?>
-
-	<?php
-
-	while (have_posts()) :
-		the_post();
-
-		get_template_part('template-parts/content', 'page');
-
-		// If comments are open or we have at least one comment, load up the comment template.
-		if (comments_open() || get_comments_number()) :
-			comments_template();
-		endif;
-
-	endwhile; // End of the loop.
 	?>
 
 </main><!-- #main -->
