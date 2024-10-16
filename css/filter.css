@@ -39,17 +39,6 @@
   transition: transform 0.3s, opacity 0.3s;
 }
 
-/* Optional: Adjust product-item transition for smoother animations */
-.isotope-hidden {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.isotope-item {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* Responsive Adjustments */
 @media (max-width: 1200px) {
   .product-item {
