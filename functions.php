@@ -182,13 +182,7 @@ function snacklab_theme_scripts()
 		true // Load in footer
 	);
 
-	// Enqueue custom styles for filter menu and grid (Optional)
-	wp_enqueue_style(
-		'your-theme-child-filter-style',
-		get_stylesheet_directory_uri() . '/css/filter.css',
-		array(),
-		'1.0'
-	);
+
 
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
 }
