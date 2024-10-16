@@ -12,37 +12,37 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<section>
+		<div>
 			<?php the_custom_logo(); ?>
-			<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-		</section> <!-- Logo / link to home -->
+			<h2 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h2>
+		</div> <!-- Logo / link to home -->
 
-		<section>
-			<div class="footer-nav-menu">
-				<h2>Navigate The Lab</h2>
+		<div>
+			<section class="footer-nav-menu">
+				<h3>Navigate The Lab</h3>
 				<nav class='footer-navigation'>
 					<?php
 						wp_nav_menu( array( 'theme_location' => 'footer-navigation' ) );
 						?>
 				</nav>
-			</div>
-			<div class='footer-social-menu'>
-				<h2>Stay Connected</h2>
+			</section>
+			<section class='footer-social-menu'>
+				<h3>Stay Connected</h3>
 				<nav class='footer-navigation'>
 					<?php
 						wp_nav_menu( array( 'theme_location' => 'footer-social-links' ) );
 						?>
 				</nav>
-			</div>
-		</section> <!-- .footer-menus -->
+			</section>
+		</div> <!-- .footer-menus -->
 
-		<section class="site-info">
+		<div class="site-info">
 			<?php
 			printf( esc_html__( '©2024 Snack Lab. All rights reserved | ', 'snacklab-theme' ), 'snacklab-theme' );
 			the_privacy_policy_link();
 			printf( esc_html__( ' | Created by Marc, Gustavo, Haw Haw and Kaleb!', 'snacklab-theme' ), 'snacklab-theme' );
 			?>
-		</section><!-- .site-info -->
+		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
