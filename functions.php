@@ -170,16 +170,16 @@ function snacklab_theme_scripts()
 		get_stylesheet_directory_uri() . '/js/isotope.pkgd.min.js',
 		array('jquery'), // Dependencies
 		'3.0.6', // Version of IsotopeJS
-		true // Load in footer
+		array('strategy' => 'defer')
 	);
 
 	// Enqueue custom filter script
 	wp_enqueue_script(
-		'your-theme-child-filter',
+		'snacklab-filter',
 		get_stylesheet_directory_uri() . '/js/filter.js',
 		array('isotope-js', 'jquery'), // Dependencies
 		'1.0',
-		true // Load in footer
+		array('strategy' => 'defer')
 	);
 
 
