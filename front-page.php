@@ -43,8 +43,8 @@ get_header();
 				// Pagination
 				echo '<div class="swiper-pagination"></div>';
 				// Navigation buttons
-				echo '<div class="swiper-button-prev"></div>';
-				echo '<div class="swiper-button-next"></div>';
+				echo '<button class="swiper-button-prev"></button>';
+				echo '<button class="swiper-button-next"></button>';
 				// Scrollbar
 				echo '<div class="swiper-scrollbar"></div>';
 				echo '</div>';
