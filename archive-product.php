@@ -41,6 +41,16 @@ do_action('woocommerce_shop_loop_header');
 // Add the filter menu here
 ?>
 <!-- Filter Menu -->
+ <?php
+if ( is_post_type_archive( 'product' ) ) {
+    $product_page_id = wc_get_page_id( 'shop' ); // Get the ID of the shop page
+    if ( has_post_thumbnail( $product_page_id ) ) {
+        echo '<div class="products-page-banner">';
+        echo get_the_post_thumbnail( $product_page_id, 'full' ); // Change 'full' to your desired image size
+        echo '</div>';
+    }
+}
+				?>
 <div class="filter-menu">
 	<button class="filter-button active" data-filter="*">All Items</button>
 	<?php

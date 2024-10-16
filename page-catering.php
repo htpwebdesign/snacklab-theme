@@ -48,7 +48,13 @@ get_header();
 							echo '</div>';
 						}
 					}
+
 					?>
+					<div class="form-catering">
+						<?php
+						echo do_shortcode('[gravityform id="1" title="true"]');
+						?>
+					</div>
 				</div>
 			</div><!-- .entry-content -->
 
