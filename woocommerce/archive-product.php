@@ -41,16 +41,16 @@ do_action('woocommerce_shop_loop_header');
 // Add the filter menu here
 ?>
 <!-- Filter Menu -->
- <?php
-if ( is_post_type_archive( 'product' ) ) {
-    $product_page_id = wc_get_page_id( 'shop' ); // Get the ID of the shop page
-    if ( has_post_thumbnail( $product_page_id ) ) {
-        echo '<div class="products-page-banner">';
-        echo get_the_post_thumbnail( $product_page_id, 'full' ); // Change 'full' to your desired image size
-        echo '</div>';
-    }
+<?php
+if (is_post_type_archive('product')) {
+	$product_page_id = wc_get_page_id('shop'); // Get the ID of the shop page
+	if (has_post_thumbnail($product_page_id)) {
+		echo '<div class="products-page-banner">';
+		echo get_the_post_thumbnail($product_page_id, 'full'); // Change 'full' to your desired image size
+		echo '</div>';
+	}
 }
-				?>
+?>
 <div class="filter-menu">
 	<button class="filter-button active" data-filter="*">All Items</button>
 	<?php
@@ -83,7 +83,7 @@ if (woocommerce_product_loop()) {
 	// Add the products-grid container
 	echo '<ul class="products-grid">';
 
-	woocommerce_product_loop_start();
+
 
 	if (wc_get_loop_prop('total')) {
 		while (have_posts()) {
@@ -98,7 +98,7 @@ if (woocommerce_product_loop()) {
 		}
 	}
 
-	woocommerce_product_loop_end();
+
 
 	echo '</ul>'; // Close products-grid
 
