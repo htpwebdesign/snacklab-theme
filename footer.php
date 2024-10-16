@@ -40,8 +40,14 @@
 			<?php
 			printf( esc_html__( '©2024 Snack Lab. All rights reserved | ', 'snacklab-theme' ), 'snacklab-theme' );
 			the_privacy_policy_link();
-			printf( esc_html__( ' | Created by Marc, Gustavo, Haw Haw and Kaleb!', 'snacklab-theme' ), 'snacklab-theme' );
+			printf( esc_html__( ' | Created by ', 'snacklab-theme' ), 'snacklab-theme' );
 			?>
+			<p>
+				<a href="https://www.marcsapa.com/" target="_blank"><?php esc_html_e('Marc', 'snacklab-theme') ?></a>, 
+				<a href="" target="_blank"><?php esc_html_e('Gustavo', 'snacklab-theme') ?></a>, 
+				<a href="https://hawhawtan.com/" target="_blank"><?php esc_html_e('Haw Haw', 'snacklab-theme') ?></a>, and
+				<a href="https://kaleblink.com/" target="_blank"><?php esc_html_e('Kaleb!', 'snacklab-theme') ?></a>
+			</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
