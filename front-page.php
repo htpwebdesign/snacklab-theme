@@ -90,14 +90,15 @@ get_header();
 			echo '<section class="cards">';
 			while (have_rows('cards')) {
 				the_row();
-				$card_image = get_sub_field('card_image');
+				$card_image_id = get_sub_field('card_image');
 				$card_title = get_sub_field('card_title');
 				$card_description = get_sub_field('card_description');
 				$card_link = get_sub_field('card_link');
 
-				echo '<article class="card">';
-				if ($card_image) {
-					echo '<img src="' . esc_url($card_image['url']) . '" alt="' . esc_attr($card_image['alt']) . '">';
+				echo '<div class="card">';
+				if ($card_image_id) {
+					$image_url = wp_get_attachment_image($card_image_id, 'full');
+					echo $image_url;
 				}
 				if ($card_title) {
 					echo '<h2>' . esc_html($card_title) . '</h2>';
@@ -108,7 +109,7 @@ get_header();
 				if ($card_link) {
 					echo '<a href="' . esc_url($card_link['url']) . '">' . esc_html($card_link['title']) . '</a>';
 				}
-				echo '</article>';
+				echo '</div>';
 			}
 			echo '</section>';
 		}
@@ -182,7 +183,6 @@ get_header();
 		</section>
 
 	<?php
-
 
 
 		// If comments are open or we have at least one comment, load up the comment template.
