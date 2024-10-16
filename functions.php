@@ -131,14 +131,14 @@ function snacklab_theme_scripts()
 {
 	wp_enqueue_style('snacklab-theme-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('snacklab-theme-style', 'rtl', 'replace');
- 
+
 	wp_enqueue_script('snacklab-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, array('strategy' => 'defer'));
-	wp_enqueue_script('accordion-script', get_template_directory_uri() . '/js/accordion.js', array(),_S_VERSION , array('strategy' => 'defer'));
+	wp_enqueue_script('accordion-script', get_template_directory_uri() . '/js/accordion.js', array(), _S_VERSION, array('strategy' => 'defer'));
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
-	} 
- 
+	}
+
 	if (is_front_page()) {
 		wp_enqueue_style('swiper-styles', get_template_directory_uri() . '/css/swiper-bundle.css', array(), '7.4.1');
 		wp_enqueue_script('swiper-scripts', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), '7.4.1', array('strategy' => 'defer'));
@@ -165,7 +165,7 @@ function snacklab_theme_scripts()
 
 
 
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', null);
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
 
