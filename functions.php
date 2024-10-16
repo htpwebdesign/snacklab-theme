@@ -152,7 +152,7 @@ function snacklab_theme_scripts()
 	wp_style_add_data('snacklab-theme-style', 'rtl', 'replace');
 
 	wp_enqueue_script('snacklab-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
-	wp_enqueue_script( 'accordion-script', get_template_directory_uri() . '/js/accordion.js', array(), null, true );
+	wp_enqueue_script('accordion-script', get_template_directory_uri() . '/js/accordion.js', array(), null, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -189,6 +189,8 @@ function snacklab_theme_scripts()
 		array(),
 		'1.0'
 	);
+
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
 
