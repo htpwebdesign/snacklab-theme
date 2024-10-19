@@ -163,7 +163,15 @@ function snacklab_theme_scripts()
 		array('strategy' => 'defer')
 	);
 
-
+		//Enqueue filter dropdown menu in products
+		wp_enqueue_script(
+			'filter-dropdown',
+			get_template_directory_uri() . '/js/filter-dropdown.js',
+			array(),
+			'24.10.18',
+			array( 'strategy' => 'defer' )
+		);
+	
 
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
 }

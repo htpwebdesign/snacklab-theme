@@ -1,21 +1,68 @@
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+// button,
+// input[type="button"],
+// input[type="reset"],
+// input[type="submit"] {
+// 	border: 1px solid;
+// 	border-color: $color__border-button;
+// 	border-radius: 3px;
+// 	background: $color__background-button;
+// 	color: rgba(0, 0, 0, 0.8);
+// 	line-height: 1;
+// 	padding: 0.6em 1em 0.4em;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
+// 	&:hover {
+// 		border-color: $color__border-button-hover;
+// 	}
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+// 	&:active,
+// 	&:focus {
+// 		border-color: $color__border-button-focus;
+// 	}
+// }
+
+/* Mobile-first layout (small screens) */
+.filter-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; /* Optional: Adds space between buttons */
+}
+
+#dropdown-toggle {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dropdown-content.show {
+    display: flex; /* Display buttons in a column when dropdown is toggled */
+}
+
+/* Large screens */
+@media (min-width: 43.75rem) { /* 700px or 43.75rem as the breakpoint */
+    .filter-menu {
+        display: flex;
+        flex-direction: row; /* Buttons side by side */
+        align-items: center;
+        gap: 10px; /* Adjust gap between buttons for large screens */
+    }
+
+    #dropdown-toggle {
+        display: none; /* Hide the dropdown button on large screens */
+    }
+
+    .dropdown-content {
+        display: flex; /* Always show buttons on large screens */
+        flex-direction: row; /* Side by side layout for buttons */
+        width: auto; /* No need for 100% width on large screens */
+    }
 }

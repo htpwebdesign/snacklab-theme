@@ -58,3 +58,10 @@ ul.products {
 		}
 	}
 }
+
+a.button.product_type_simple,
+.woocommerce-result-count,
+.woocommerce-ordering {
+	display: none;
+}
+

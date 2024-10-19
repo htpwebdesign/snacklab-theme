@@ -59,6 +59,12 @@
 						'menu_id'        => 'primary-menu',
 					)
 				);
+
+				
+				if ( function_exists( 'snacklab_theme_woocommerce_header_cart' ) ) {
+					snacklab_theme_woocommerce_header_cart();
+				}
+			
 				?>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->
