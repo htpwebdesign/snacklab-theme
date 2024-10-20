@@ -59,9 +59,19 @@ ul.products {
 	}
 }
 
-a.button.product_type_simple,
-.woocommerce-result-count,
-.woocommerce-ordering {
-	display: none;
-}
-
+.products-grid {
+	margin: 0;
+	padding: 0;
+	li {
+		a {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			h2 {
+				font-size: 1rem;
+			}
+		}
+	}
+	}
