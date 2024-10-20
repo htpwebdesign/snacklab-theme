@@ -1,21 +1,94 @@
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+// button,
+// input[type="button"],
+// input[type="reset"],
+// input[type="submit"] {
+// 	border: 1px solid;
+// 	border-color: $color__border-button;
+// 	border-radius: 3px;
+// 	background: $color__background-button;
+// 	color: rgba(0, 0, 0, 0.8);
+// 	line-height: 1;
+// 	padding: 0.6em 1em 0.4em;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
+// 	&:hover {
+// 		border-color: $color__border-button-hover;
+// 	}
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+// 	&:active,
+// 	&:focus {
+// 		border-color: $color__border-button-focus;
+// 	}
+// }
+
+/* Mobile-first layout (small screens) */
+.filter-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px; /* Optional: Adds space between buttons */
+    max-width: 12rem;
+}
+
+#dropdown-toggle {
+    display: block;
+    background-color: $color_terracota;
+    color: $color_charcoal;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    font-weight: 700;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dropdown-content.show {
+    display: flex; /* Display buttons in a column when dropdown is toggled */
+}
+
+/* Large screens */
+@media (min-width: 43.75em) { /* 700px or 43.75rem as the breakpoint */
+    .filter-menu {
+        display: flex;
+        flex-direction: row; /* Buttons side by side */
+        align-items: center;
+        gap: 10px; /* Adjust gap between buttons for large screens */
+    }
+
+    #dropdown-toggle {
+        display: none; /* Hide the dropdown button on large screens */
+    }
+
+    .dropdown-content {
+        display: flex; /* Always show buttons on large screens */
+        flex-direction: row; /* Side by side layout for buttons */
+        width: auto; /* No need for 100% width on large screens */
+        margin: 2rem auto;
+        button {
+            min-width: 8rem;
+            border: 2px solid black;
+            border-right: none;
+            background-color: $color_dblue;
+            color: white;
+        }
+        button:last-child {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border-right: 2px solid black;
+        }
+        button:first-child {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        button.active {
+            background-color: $color_terracota;
+        }
+    }
 }
