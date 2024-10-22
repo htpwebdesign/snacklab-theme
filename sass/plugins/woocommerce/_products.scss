@@ -23,9 +23,10 @@
 
 		h2 {
 			font-size: 1rem;
-			color: $color_charcoal;
+			color: $color_terracota;
 			@include work-sans;
 			font-weight: 900;
+			margin-bottom: 2.5rem;
 		}
 
 		img {
