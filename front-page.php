@@ -51,24 +51,29 @@ get_header();
 			}
 
 
+
 			//ACF hero_title field
 			$hero_title = get_field('hero_text');
 
+			echo '<div class="hero-text-container">';
+
 			if ($hero_title) {
-				echo '<div class="hero-text">';
-				echo '<h1>' . esc_html($hero_title) . '</h1>';
-				echo '</div>';
+
+				echo '<h1 class="hero-text">' . esc_html($hero_title) . '</h1>';
 			}
 
 			// ACF Hero Description 
 			$hero_description = get_field('hero_description');
 
 			if ($hero_description) {
-				echo '<div class="hero-description">';
-				echo '<p>' . esc_html($hero_description) . '</p>';
-				echo '</div>';
+				echo '<p class="hero-description">' . esc_html($hero_description) . '</p>';
 			}
+
+			echo '</div>';
+
 			echo '</article>';
+
+
 			?>
 
 		</section>
