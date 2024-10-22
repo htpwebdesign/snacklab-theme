@@ -87,6 +87,7 @@ if (woocommerce_product_loop()) {
 	 */
 	do_action('woocommerce_before_shop_loop');
 
+	?><div class="products-container"><?php
 	// Add the products-grid container
 	echo '<ul class="products-grid">';
 
@@ -105,7 +106,7 @@ if (woocommerce_product_loop()) {
 		}
 	}
 
-
+	?></div><?php
 
 	echo '</ul>'; // Close products-grid
 
@@ -136,6 +137,6 @@ do_action('woocommerce_after_main_content');
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-do_action('woocommerce_sidebar');
+// do_action('woocommerce_sidebar');
 
 get_footer('shop');

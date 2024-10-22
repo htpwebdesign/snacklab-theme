@@ -50,30 +50,30 @@
 }
 
 .dropdown-content.show {
-    display: flex; /* Display buttons in a column when dropdown is toggled */
+    display: flex;
 }
 
 /* Large screens */
-@media (min-width: 43.75em) { /* 700px or 43.75rem as the breakpoint */
+@media (min-width: 43.75em) {
     .filter-menu {
         display: flex;
-        flex-direction: row; /* Buttons side by side */
+        flex-direction: row;
         align-items: center;
-        gap: 10px; /* Adjust gap between buttons for large screens */
+        gap: 10px;
     }
 
     #dropdown-toggle {
-        display: none; /* Hide the dropdown button on large screens */
+        display: none;
     }
 
     .dropdown-content {
-        display: flex; /* Always show buttons on large screens */
-        flex-direction: row; /* Side by side layout for buttons */
-        width: auto; /* No need for 100% width on large screens */
+        display: flex;
+        flex-direction: row;
+        width: auto;
         margin: 2rem auto;
         button {
             min-width: 8rem;
-            border: 2px solid black;
+            border: 1px solid black;
             border-right: none;
             background-color: $color_dblue;
             color: white;
@@ -81,7 +81,7 @@
         button:last-child {
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
-            border-right: 2px solid black;
+            border-right: 1px solid black;
         }
         button:first-child {
             border-top-left-radius: 15px;
@@ -91,4 +91,13 @@
             background-color: $color_terracota;
         }
     }
+}
+
+#sp-wqv-view-button {
+    position: absolute;
+    bottom: 1rem;
+}
+
+#sp-wqv-view-button.sp-wqv-view-button.button {
+    font-size: 1rem;
 }
