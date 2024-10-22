@@ -50,6 +50,7 @@ function snacklab_theme_setup()
 
 	// Cropping to banner image in Catering/Products Page
 	add_image_size('hero-banner', 1792, 550, array('center', 'center'));
+	add_image_size('product-thumb', 320, 320, true);
 
 	// This theme uses wp_nav_menu() in one location, and two menus in the footer.
 	register_nav_menus(
