@@ -95,7 +95,9 @@
 
 #sp-wqv-view-button {
     position: absolute;
-    top: 17rem;
-    left: 32%;
-    font-size: 2rem;
+    bottom: 1rem;
+}
+
+#sp-wqv-view-button.sp-wqv-view-button.button {
+    font-size: 1rem;
 }

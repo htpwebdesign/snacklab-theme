@@ -39,6 +39,13 @@ if ($terms && ! is_wp_error($terms)) {
 
 <li <?php wc_product_class($category_classes, $product); ?>>
     <?php
+     /**
+      * Hook: woocommerce_shop_loop_item_title.
+      *
+      * @hooked woocommerce_template_loop_product_title - 10
+      */
+     do_action('woocommerce_shop_loop_item_title');
+     
     /**
      * Hook: woocommerce_before_shop_loop_item.
      *
@@ -49,12 +56,6 @@ if ($terms && ! is_wp_error($terms)) {
     // Display the product thumbnail with the custom size
     echo woocommerce_get_product_thumbnail('product-thumb');
 
-    /**
-     * Hook: woocommerce_shop_loop_item_title.
-     *
-     * @hooked woocommerce_template_loop_product_title - 10
-     */
-    do_action('woocommerce_shop_loop_item_title');
 
     /**
      * Hook: woocommerce_after_shop_loop_item_title.
