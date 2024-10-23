@@ -50,6 +50,7 @@ function snacklab_theme_setup()
 
 	// Cropping to banner image in Catering/Products Page
 	add_image_size('hero-banner', 1792, 550, array('center', 'center'));
+	add_image_size('product-thumb', 320, 320, true);
 
 	// This theme uses wp_nav_menu() in one location, and two menus in the footer.
 	register_nav_menus(
@@ -163,7 +164,15 @@ function snacklab_theme_scripts()
 		array('strategy' => 'defer')
 	);
 
-
+		//Enqueue filter dropdown menu in products
+		wp_enqueue_script(
+			'filter-dropdown',
+			get_template_directory_uri() . '/js/filter-dropdown.js',
+			array(),
+			'24.10.18',
+			array( 'strategy' => 'defer' )
+		);
+	
 
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', null);
 }
@@ -209,3 +218,10 @@ if (class_exists('WooCommerce')) {
  * Custom Post Types
  */
 require get_template_directory() . '/inc/cpt.php';
+
+
+// Remove the result count (e.g. "Showing 1–10 of 50 results")
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+// Remove the product sorting dropdown
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
