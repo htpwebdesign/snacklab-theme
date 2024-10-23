@@ -106,3 +106,31 @@
 }
 
 // Custom Styling - Snack Lab
+
+@media screen and (min-width: 37.5em) {
+  .main-navigation ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .menu-main-navigation-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+
+    padding: 0.5rem 1rem 0.5rem 0;
+    background-color: #2c2c2c;
+
+    ul {
+      li {
+        a {
+          color: white;
+          padding: 0.5rem;
+          text-decoration: none;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
