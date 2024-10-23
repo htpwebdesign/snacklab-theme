@@ -44,7 +44,7 @@
 			?>
 			<p>
 				<a href="https://www.marcsapa.com/" target="_blank"><?php esc_html_e('Marc', 'snacklab-theme') ?></a>, 
-				<a href="" target="_blank"><?php esc_html_e('Gustavo', 'snacklab-theme') ?></a>, 
+				<a href="https://ghyamamoto.com/" target="_blank"><?php esc_html_e('Gustavo', 'snacklab-theme') ?></a>, 
 				<a href="https://hawhawtan.com/" target="_blank"><?php esc_html_e('Haw Haw', 'snacklab-theme') ?></a>, and
 				<a href="https://kaleblink.com/" target="_blank"><?php esc_html_e('Kaleb!', 'snacklab-theme') ?></a>
 			</p>
