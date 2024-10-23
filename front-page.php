@@ -59,7 +59,7 @@ get_header();
 
 			if ($hero_title) {
 
-				echo '<h1 class="hero-text">' . esc_html($hero_title) . '</h1>';
+				echo '<h1 class="hero-text">' .  $hero_title . '</h1>';
 			}
 
 			// ACF Hero Description 
@@ -86,7 +86,7 @@ get_header();
 			$cta_home_two = get_field('cta_home_two');
 
 			if ($cta_home_two) {
-				echo '<button class="cta-home-two button-5">';
+				echo '<button class="cta-home-two">';
 
 				echo '<a href="' . esc_url($cta_home_two) . '">See Our Locations</a>';
 
