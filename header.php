@@ -60,11 +60,12 @@
 					)
 				);
 
+				?> 
 				
-				if ( function_exists( 'snacklab_theme_woocommerce_header_cart' ) ) {
-					snacklab_theme_woocommerce_header_cart();
-				}
-			
-				?>
 			</nav><!-- #site-navigation -->
+			<?php
+			if ( function_exists( 'snacklab_theme_woocommerce_header_cart' ) ) {
+				snacklab_theme_woocommerce_header_cart();
+			}
+			?> 
 		</header><!-- #masthead -->
