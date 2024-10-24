@@ -28,29 +28,27 @@
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'snacklab-theme'); ?></a>
 
 		<header id="masthead" class="site-header">
-			<div class="site-branding">
-				<?php
-				the_custom_logo();
-				if (is_front_page() && is_home()) :
-				?>
-					<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-				<?php
-				else :
-				?>
-					<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-				<?php
-				endif;
-				$snacklab_theme_description = get_bloginfo('description', 'display');
-				if ($snacklab_theme_description || is_customize_preview()) :
-				?>
-					<p class="site-description"><?php echo $snacklab_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-												?></p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
-
-			<!-- Marc Initial Commit -->
-
 			<nav id="site-navigation" class="main-navigation">
+				<div class="site-branding">
+					<h1>
+						<h1>
+							<a href="<?php echo home_url(); ?>">
+								<?php the_field('site_title', 31); ?>
+							</a>
+						</h1>
+
+						<?php
+						$snacklab_theme_description = get_bloginfo('description', 'display');
+						if ($snacklab_theme_description || is_customize_preview()) :
+						?>
+							<p class="site-description"><?php echo $snacklab_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+														?></p>
+						<?php endif; ?>
+				</div><!-- .site-branding -->
+
+				<!-- Marc Initial Commit -->
+
+
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'snacklab-theme'); ?></button>
 				<?php
 				wp_nav_menu(

@@ -68,6 +68,20 @@
   }
 }
 
+.site-branding {
+  position: absolute;
+  top: -1rem;
+  @include work-sans;
+  color: $color_white;
+  padding-left: 1rem;
+  a {
+    color: $color_white;
+  }
+  .title-color {
+    color: $color_terracota;
+  }
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
