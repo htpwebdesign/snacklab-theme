@@ -59,13 +59,20 @@
 						'menu_id'        => 'primary-menu',
 					)
 				);
-
-				?> 
-				
+				?>
+				<div class="cart-in-nav">
+					<?php
+					if (function_exists('snacklab_theme_woocommerce_header_cart')) {
+						snacklab_theme_woocommerce_header_cart();
+					}
+					?>
+				</div>
 			</nav><!-- #site-navigation -->
-			<?php
-			if ( function_exists( 'snacklab_theme_woocommerce_header_cart' ) ) {
-				snacklab_theme_woocommerce_header_cart();
-			}
-			?> 
+			<div class="cart-out-nav">
+				<?php
+				if (function_exists('snacklab_theme_woocommerce_header_cart')) {
+					snacklab_theme_woocommerce_header_cart();
+				}
+				?>
+			</div>
 		</header><!-- #masthead -->
