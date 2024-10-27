@@ -11,10 +11,6 @@
     text-align: center;
     text-transform: uppercase;
 
-    h2 {
-        font-family: "Work Sans", sans-serif;
-    }
-
     a,
     a:visited,
     a:active,
@@ -22,12 +18,34 @@
         color: $color_mustard;
     }
 
+    .site-branding-footer {
+        @include work-sans;
+        font-size: 1.8rem;
+        color: $color_white;
+        a {
+            color: $color_white;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .title-color {
+            color: $color_terracota;
+        }
+    }
+
+
     .footer-nav-menu {
         margin: 4rem 0;
 
         a {
             color: $color_white;
             text-decoration: underline;
+            padding-bottom: 0.1rem;
+            &:hover {
+                text-decoration: none;
+                color: $color_mustard;
+            }
         }
 
         ul {
@@ -61,6 +79,9 @@
                 fill: $color_mustard;
                 width: 2rem;
                 height: 2rem;
+                &:hover {
+                    fill: $color_white;
+                }
             }
         }
     }
@@ -71,12 +92,21 @@
     }
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 47rem) {
     .site-footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: baseline;
+
+        .site-branding-footer {
+            // height: fit-content;
+            align-self: center;
+            h2 {
+                padding: 0;
+                margin: 0;
+            }
+        }
 
         .footer-nav-menu {
             margin: 0;

@@ -12,10 +12,14 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div>
-			<?php the_custom_logo(); ?>
-			<h2 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h2>
-		</div> <!-- Logo / link to home -->
+		
+		<div class="site-branding-footer">
+			<h2>
+				<a href="<?php echo home_url(); ?>">
+					<?php the_field('site_title', 31); ?>
+				</a>
+			</h2>
+		</div><!-- .site-branding -->
 
 		<div class="footer-nav-menu">
 			<h3>Navigate The Lab</h3>
