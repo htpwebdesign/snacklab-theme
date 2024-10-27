@@ -1,0 +1,39 @@
+.review-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 80rem;
+
+    h2 {
+        color: $color_mustard;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        margin: 0 3rem 0 0;
+        padding: 1rem 0;
+    }
+    .review {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        border: 2px solid $color_charcoal;
+        h3 {
+            font-size: 1rem;
+            margin: 0;
+            max-width: 20rem;
+        }
+        .review-stars {
+            color: $color_terracota;
+        }
+    }
+    .review-cta {
+        align-content: center;
+        h2 {
+            color: $color_dblue;
+            margin: 0 0 0 3rem;
+            padding: 1rem 0;
+        }
+    }
+}
