@@ -1,3 +1,9 @@
+// this is to remove the margin at the bottom of the page underneath the footer
+.post,
+.page {
+    margin: 0;
+}
+
 .site-footer {
     padding: 2rem;
     background-color: $color-charcoal;
@@ -69,7 +75,7 @@
     .site-footer {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: baseline;
 
         .footer-nav-menu {

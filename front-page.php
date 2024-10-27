@@ -149,20 +149,20 @@ get_header();
 
 
 			if (have_rows('reviews')) {
-				echo '<article class="reviews">';
+				// echo '<article class="reviews">';
 				while (have_rows('reviews')) {
 					the_row();
 					$review_name = get_sub_field('review_name');
-					$review_content = get_sub_field('review_content');
+					// $review_content = get_sub_field('review_content');
 					$review_stars = get_sub_field('review_stars');
 
 					echo '<div class="review">';
 					if ($review_name) {
 						echo '<h3>' . esc_html($review_name) . '</h3>';
 					}
-					if ($review_content) {
-						echo '<p>' . esc_html($review_content) . '</p>';
-					}
+					// if ($review_content) {
+					// 	echo '<p>' . esc_html($review_content) . '</p>';
+					// }
 					if ($review_stars) {
 						echo '<div class="review-stars">';
 						for ($i = 0; $i < $review_stars; $i++) {
@@ -172,7 +172,7 @@ get_header();
 					}
 					echo '</div>';
 				}
-				echo '</article>';
+				// echo '</article>';
 			}
 
 			// ACF CTA
