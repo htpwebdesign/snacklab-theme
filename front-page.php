@@ -59,7 +59,7 @@ get_header();
 
 			if ($hero_title) {
 
-				echo '<h1 class="hero-text">' . esc_html($hero_title) . '</h1>';
+				echo '<h1 class="hero-text">' .  $hero_title . '</h1>';
 			}
 
 			// ACF Hero Description 
@@ -69,9 +69,37 @@ get_header();
 				echo '<p class="hero-description">' . esc_html($hero_description) . '</p>';
 			}
 
+			echo '<div class="cta-buttons">';
+
+			// ACF Link field 'cta_home_one'
+			$cta_home_one = get_field('cta_home_one');
+
+			if ($cta_home_one) {
+				echo '<button class="cta-home-one">';
+
+				echo '<a href="' . esc_url($cta_home_one) . '">View Menu</a>';
+
+				echo '</button>';
+			}
+
+			// ACF Link field 'cta_home_two'
+			$cta_home_two = get_field('cta_home_two');
+
+			if ($cta_home_two) {
+				echo '<button class="cta-home-two">';
+
+				echo '<a href="' . esc_url($cta_home_two) . '">See Our Locations</a>';
+
+				echo '</button>';
+			}
+
+			echo '</div>';
+
 			echo '</div>';
 
 			echo '</article>';
+
+
 
 
 			?>

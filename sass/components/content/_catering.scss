@@ -1,5 +1,46 @@
 .catering-gallery {
-    img {
-        max-width: 20rem;
+    // max-width: 25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+        img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        max-width: 25rem;
+        border-radius: 15px;
     }
 }
+
+.catering-item {
+    position: relative;
+    margin: 1rem;
+    p {
+        color: $color_white;
+        margin-bottom: 1rem;
+        padding: .5rem 1rem;
+        @include work-sans;
+        font-weight: 600;
+    }
+}
+
+.catering-text-wrapper {
+    min-height: 3rem;
+    background-color: rgba($color_charcoal, 0.8); 
+    position: absolute;
+    bottom: 3.3rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.gform_description, .gform_title {
+    display: none;
+}
+
+.form-catering {
+    width: 50rem;
+    margin: 0 auto;
+}
+
+// @media screen and (min-width: ) {
+    
+// }
