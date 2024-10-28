@@ -1,5 +1,10 @@
 .main-navigation {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+
   width: 100%;
 
   ul {
@@ -7,6 +12,9 @@
     list-style: none;
     margin: 0;
     padding-left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     ul {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -68,20 +76,6 @@
   }
 }
 
-.site-branding {
-  position: absolute;
-  top: -1rem;
-  @include work-sans;
-  color: $color_white;
-  padding-left: 1rem;
-  a {
-    color: $color_white;
-  }
-  .title-color {
-    color: $color_terracota;
-  }
-}
-
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
@@ -89,6 +83,10 @@
 }
 
 @media screen and (min-width: 37.5em) {
+  .main-navigation {
+    padding: 0;
+    display: block;
+  }
   .menu-toggle {
     display: none;
   }
@@ -130,6 +128,19 @@
 }
 
 @media screen and (min-width: 37.5em) {
+  .site-branding {
+    position: absolute;
+    top: -1rem;
+    @include work-sans;
+    color: $color_white;
+    padding-left: 1rem;
+    a {
+      color: $color_white;
+    }
+    .title-color {
+      color: $color_terracota;
+    }
+  }
   .main-navigation ul {
     display: flex;
     justify-content: flex-end;
@@ -159,7 +170,7 @@
   .cart-in-nav {
     display: block;
   }
-  
+
   .cart-out-nav {
     display: none;
   }
