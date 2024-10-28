@@ -49,7 +49,9 @@
 				<!-- Marc Initial Commit -->
 
 
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'snacklab-theme'); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<input type="checkbox" role="button" aria-label="Display the menu" class="menu">
+				</button>
 				<?php
 				wp_nav_menu(
 					array(
