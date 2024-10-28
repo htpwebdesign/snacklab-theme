@@ -41,10 +41,17 @@
 	}
 }
 
-
 .products-grid {
 	width: 22rem;
 	margin: 0 auto;
+}
+
+#wqv-quick-view-content {
+	.wqv-product-info{
+		.product_title {
+			color: $color_terracota;
+		}		
+	}
 }
 
 @media screen and (min-width: 44rem) {
