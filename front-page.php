@@ -119,19 +119,23 @@ get_header();
 		}
 
 		// ACF repeater field 'cards'
-		if (have_rows('cards')) {
+		if (function_exists('have_rows') && have_rows('cards')) {
 			echo '<section class="cards">';
 			while (have_rows('cards')) {
 				the_row();
-				$card_image_id = get_sub_field('card_image');
-				$card_title = get_sub_field('card_title');
-				$card_description = get_sub_field('card_description');
-				$card_link = get_sub_field('card_link');
+				if (function_exists('get_sub_field')) {
+					$card_image_id = get_sub_field('card_image');
+					$card_title = get_sub_field('card_title');
+					$card_description = get_sub_field('card_description');
+					$card_link = get_sub_field('card_link');
+				}
 
 				echo '<div class="card">';
-				if ($card_image_id) {
-					$image_url = wp_get_attachment_image($card_image_id, 'full');
-					echo $image_url;
+				if (!empty($card_image_id)) {  // Ensure that card_image_id is not empty
+					$image_url = wp_get_attachment_image_url($card_image_id, 'medium');
+					if ($image_url) {
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($card_title) . '">';
+					}
 				}
 				if ($card_title) {
 					echo '<h2>' . esc_html($card_title) . '</h2>';
@@ -142,10 +146,11 @@ get_header();
 				if ($card_link) {
 					echo '<a href="' . esc_url($card_link['url']) . '">' . esc_html($card_link['title']) . '</a>';
 				}
-				echo '</div>';
+				echo '</div>'; // Close the card div
 			}
-			echo '</section>';
+			echo '</section>'; // Close the section
 		}
+
 
 		// Announcement Scroller
 
