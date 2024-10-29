@@ -24,3 +24,24 @@ dt {
 dd {
 	margin: 0 1.5em 1.5em;
 }
+
+
+//career page
+.page-id-217 {
+	.wp-block-list{
+		padding: 0;
+		li{
+			margin-bottom: 1rem;
+		}
+
+	}
+	.entry-content{
+		ul{
+			list-style: inside;
+			padding: 0;
+			li{
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}

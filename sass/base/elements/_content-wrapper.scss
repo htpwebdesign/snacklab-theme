@@ -1,0 +1,22 @@
+.content-wrapper {
+    padding: 1rem 2rem;
+    margin-top: -3.125rem;
+    background-color: white;
+    z-index: 2;
+}
+
+
+@media (min-width: 47rem) {
+  .content-wrapper{
+    p{
+        margin: 0 auto;
+        width: 40rem;
+    }
+  }
+  .wp-block-list{
+    li{
+        margin: 0 auto;
+        width: 35rem;
+    }
+  }
+}
