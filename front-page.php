@@ -35,7 +35,7 @@ get_header();
 				echo '<div class="swiper">';
 				echo '<div class="swiper-wrapper">';
 				foreach ($hero_gallery as $image) {
-					echo '<div class="swiper-slide">';
+					echo '<div class="swiper-slide" data-swiper-autoplay="3500">';
 					echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
 					echo '</div>';
 				}
