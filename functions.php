@@ -197,6 +197,23 @@ function snacklab_theme_scripts()
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
 
+function snacklab_add_cart_count_to_menu($items, $args)
+{
+	if ($args->theme_location == 'menu-1') {
+		$item_count = WC()->cart->get_cart_contents_count();
+
+		if ($item_count > 0) {
+			$item_count_text = ' (' . $item_count . ')';
+		} else {
+			$item_count_text = '';
+		}
+		$items = str_replace('>Cart<', '>' . $item_count_text . '<', $items);
+	}
+
+	return $items;
+}
+add_filter('wp_nav_menu_items', 'snacklab_add_cart_count_to_menu', 10, 2);
+
 
 
 /**

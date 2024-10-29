@@ -19,3 +19,34 @@
 		}
 	}
 }
+
+#post-125,
+#post-126 {
+	max-width: 62.5rem;
+	margin: 0 auto;
+}
+
+.has-text-align-center {
+	font-size: 2rem;
+}
+
+.wp-block-image{
+	.wp-image-380 {
+		width: 8rem;
+		fill: $color_charcoal;
+		margin-top: 5rem;
+	}
+}
+
+.wp-block-woocommerce-empty-cart-block {
+	h2 {
+		margin: 6rem 0;
+		a {
+			text-decoration: none;
+			color: $color_charcoal;
+		}
+		a:hover {
+			color: $color_terracota;
+		}
+	}
+}
