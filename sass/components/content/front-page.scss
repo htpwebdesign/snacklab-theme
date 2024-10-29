@@ -8,10 +8,23 @@
   width: 100%;
 
   .hero-text {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 900;
     @include work-sans;
     margin: 0;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 24em) {
+    .hero-text {
+      font-size: 4rem;
+    }
+  }
+
+  @media screen and (min-width: 64em) {
+    .hero-text {
+      font-size: 5rem;
+    }
   }
   .hero-description {
     font-size: 1rem;
@@ -152,9 +165,9 @@
 
     .hero-text-container {
       width: 40%;
-      padding: 0 0.5rem;
+      padding: 0 1rem;
       display: flex;
-      gap: 2rem;
+      gap: 1rem;
       justify-content: space-between;
       flex-direction: column;
     }
@@ -299,6 +312,7 @@
     background-color: #c47d61;
     padding: 1rem;
     width: 20rem;
+    margin: 0 auto;
     border: 1px solid #e0e0e0;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px;
@@ -345,6 +359,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      margin: 0;
 
       .announcement-content {
         padding: 1rem;
