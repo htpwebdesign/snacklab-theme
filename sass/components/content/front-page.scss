@@ -222,7 +222,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-
+  background-color: #c97c5d;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   padding: 2rem 0;
 
   .card {
@@ -273,6 +275,105 @@
       &:hover {
         background-color: #d18e6e;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .cards {
+    padding: 4rem 0;
+  }
+
+  .card {
+    width: 30%;
+  }
+}
+
+.announcement-repeater {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+
+  .announcement {
+    background-color: #c47d61;
+    padding: 1rem;
+    width: 20rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: rgba(0, 0, 0, 0.15) 0 8px 12px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      color: white;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 1rem 1rem;
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .announcement-repeater {
+    grid-template-columns: 1fr;
+
+    .announcement {
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .announcement-content {
+        padding: 1rem;
+        text-align: left;
+      }
+      img {
+        border-bottom: none;
+        max-width: 20rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .announcement-repeater {
+    padding: 4rem 1rem;
+    margin-top: 3rem;
+    .announcement {
+      width: 60%;
+      .announcement-content {
+        padding: 1rem;
+        h2,
+        p {
+          color: #fff;
+        }
+      }
+    }
+    .announcement:nth-child(even) {
+      justify-self: end;
     }
   }
 }

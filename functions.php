@@ -164,17 +164,36 @@ function snacklab_theme_scripts()
 		array('strategy' => 'defer')
 	);
 
-		//Enqueue filter dropdown menu in products
-		wp_enqueue_script(
-			'filter-dropdown',
-			get_template_directory_uri() . '/js/filter-dropdown.js',
-			array(),
-			'24.10.18',
-			array( 'strategy' => 'defer' )
-		);
-	
+	//Enqueue filter dropdown menu in products
+	wp_enqueue_script(
+		'filter-dropdown',
+		get_template_directory_uri() . '/js/filter-dropdown.js',
+		array(),
+		'24.10.18',
+		array('strategy' => 'defer')
+	);
+
 
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', null);
+
+	// Enqueue AOS JS
+	wp_enqueue_script(
+		'aos-js',
+		get_stylesheet_directory_uri() . '/js/aos.js',
+		array(),
+		'2.3.4',
+		array('strategy' => 'defer')
+	);
+
+	// Enqueue AOS CSS
+	wp_enqueue_style(
+		'aos-css',
+		get_stylesheet_directory_uri() . '/css/aos.css',
+		array(),
+		'2.3.4'
+	);
+
+	wp_add_inline_script('aos-js', 'AOS.init();');
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
 
@@ -221,7 +240,7 @@ require get_template_directory() . '/inc/cpt.php';
 
 
 // Remove the result count (e.g. "Showing 1–10 of 50 results")
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 // Remove the product sorting dropdown
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
