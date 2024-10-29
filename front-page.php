@@ -35,7 +35,7 @@ get_header();
 				echo '<div class="swiper">';
 				echo '<div class="swiper-wrapper">';
 				foreach ($hero_gallery as $image) {
-					echo '<div class="swiper-slide">';
+					echo '<div class="swiper-slide" data-swiper-autoplay="3500">';
 					echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
 					echo '</div>';
 				}
@@ -152,15 +152,40 @@ get_header();
 		}
 
 
-		// Announcement Scroller
+		// ACF repeater field 'announcement_repeater'
 
-		$announcement_scroller = get_field('announcement_scroller');
+		if (have_rows('announcement_repeater')) {
+			echo '<section class="announcement-repeater">';
+			while (have_rows('announcement_repeater')) {
+				the_row();
+				$announcement_image_id = get_sub_field('announcement_image');
+				$announcement_title = get_sub_field('announcement_title');
+				$announcement_description = get_sub_field('announcement_description');
 
-		if ($announcement_scroller) {
-			echo '<div class="announcement-scroller">';
-			echo '<p>' . esc_html($announcement_scroller) . '</p>';
 
-			echo '</div>';
+		?>
+
+		<?php
+
+
+				echo '<div class="announcement" data-aos="fade-up">';
+				if (!empty($announcement_image_id)) {
+					$image_url = wp_get_attachment_image_url($announcement_image_id, 'medium');
+					if ($image_url) {
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($announcement_title) . '">';
+					}
+				}
+				echo '<div class="announcement-content">';
+				if ($announcement_title) {
+					echo '<h2>' . esc_html($announcement_title) . '</h2>';
+				}
+				if ($announcement_description) {
+					echo '<p>' . esc_html($announcement_description) . '</p>';
+				}
+				echo '</div>'; // Close the announcement-content div
+				echo '</div>'; // Close the announcement div
+			}
+			echo '</section>'; // Close the section
 		}
 
 		?>
@@ -250,9 +275,13 @@ get_header();
 	endwhile; // End of the loop.
 	?>
 
+	<?php
+
+
+	?>
+
 </main><!-- #main -->
 
 <?php
-
 get_footer();
 ?>
