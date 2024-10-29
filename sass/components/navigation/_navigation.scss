@@ -18,8 +18,12 @@
     h1 {
       margin: 0;
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 900;
       color: #fff;
+
+      a {
+        font-weight: 900;
+      }
       &:hover {
         color: #c97c5d;
       }
@@ -264,7 +268,6 @@
 }
 
 // Custom Styling - Snack Lab
-
 
 @media screen and (min-width: 37.5em) {
   .main-navigation ul {

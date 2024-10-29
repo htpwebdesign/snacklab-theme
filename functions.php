@@ -175,6 +175,25 @@ function snacklab_theme_scripts()
 
 
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', null);
+
+	// Enqueue AOS JS
+	wp_enqueue_script(
+		'aos-js',
+		get_stylesheet_directory_uri() . '/js/aos.js',
+		array(),
+		'2.3.4',
+		array('strategy' => 'defer')
+	);
+
+	// Enqueue AOS CSS
+	wp_enqueue_style(
+		'aos-css',
+		get_stylesheet_directory_uri() . '/css/aos.css',
+		array(),
+		'2.3.4'
+	);
+
+	wp_add_inline_script('aos-js', 'AOS.init();');
 }
 add_action('wp_enqueue_scripts', 'snacklab_theme_scripts');
 

@@ -8,7 +8,7 @@
   width: 100%;
 
   .hero-text {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 900;
     @include work-sans;
     margin: 0;
@@ -44,8 +44,8 @@
     color: #000000;
     display: inline-flex;
     @include work-sans;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     justify-content: center;
     line-height: 1.25;
     margin: 0;
@@ -70,10 +70,12 @@
       background-color: #a86a4b;
       box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
       transform: translateY(0);
+      text-decoration: none;
     }
 
     a:visited {
       color: #fff;
+      text-decoration: none;
     }
   }
 
@@ -89,8 +91,8 @@
     color: #000000;
     display: inline-flex;
     @include work-sans;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     justify-content: center;
     line-height: 1.25;
     margin: 0;
@@ -115,10 +117,12 @@
       background-color: #6e7f8f;
       box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
       transform: translateY(0);
+      text-decoration: none;
     }
 
     a:visited {
       color: #fff;
+      text-decoration: none;
     }
   }
 }
@@ -139,17 +143,18 @@
   transform: translateY(0);
 }
 
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 64rem) {
   .hero-article {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    margin: 4rem 1rem;
 
     .hero-text-container {
       width: 40%;
-      padding: 0 2rem;
+      padding: 0 0.5rem;
       display: flex;
+      gap: 2rem;
       justify-content: space-between;
       flex-direction: column;
     }
@@ -194,7 +199,7 @@
   p {
     display: inline-block;
     padding-left: 100%;
-    animation: scroll 10s linear infinite;
+    animation: scroll 30s linear infinite;
     color: white;
     font-weight: 500;
     font-size: 1rem;
@@ -202,7 +207,7 @@
 
   @keyframes scroll {
     0% {
-      transform: translateX(100%);
+      transform: translateX(0%);
     }
     100% {
       transform: translateX(-100%);
@@ -217,7 +222,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-
+  background-color: #c97c5d;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   padding: 2rem 0;
 
   .card {
@@ -227,7 +234,6 @@
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px;
     overflow: hidden;
-    width: 300px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 
@@ -269,6 +275,105 @@
       &:hover {
         background-color: #d18e6e;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .cards {
+    padding: 4rem 0;
+  }
+
+  .card {
+    width: 30%;
+  }
+}
+
+.announcement-repeater {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+
+  .announcement {
+    background-color: #c47d61;
+    padding: 1rem;
+    width: 20rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: rgba(0, 0, 0, 0.15) 0 8px 12px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      color: white;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 1rem 1rem;
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .announcement-repeater {
+    grid-template-columns: 1fr;
+
+    .announcement {
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .announcement-content {
+        padding: 1rem;
+        text-align: left;
+      }
+      img {
+        border-bottom: none;
+        max-width: 20rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .announcement-repeater {
+    padding: 4rem 1rem;
+    margin-top: 3rem;
+    .announcement {
+      width: 60%;
+      .announcement-content {
+        padding: 1rem;
+        h2,
+        p {
+          color: #fff;
+        }
+      }
+    }
+    .announcement:nth-child(even) {
+      justify-self: end;
     }
   }
 }
