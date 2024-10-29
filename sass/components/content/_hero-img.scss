@@ -44,19 +44,42 @@ html, body {
 
 @media (min-width: 47rem) {
     .hero-picture {
-        height: 80vh; /* Full height for the hero section */
+        height: 45vh; /* Full height for the hero section */
         &::after{
-          height: 80vh;
+          height: 50vh;
         }
     }    
 }
 
 
-// @media (min-width: 90rem) {
-//     .hero-picture {
-//         height: 60vh; /* Full height for the hero section */
-//         &::after{
-//           height: 60vh;
-//         }
-//     }    
-// }
+@media (min-width: 90rem) {
+    .hero-picture {
+        height: 80vh; /* Full height for the hero section */
+        &::after{
+          height: 70vh;
+        }
+    }    
+}
+
+
+//cathering
+.page-id-28{
+    .hero-picture {
+        height: 15vh; /* Full height for the hero section */
+    }
+    &:after{
+        background-position: 80% 0%;;
+    }
+}
+
+@media (min-width: 47rem) {
+    .page-id-28{
+        .hero-picture {
+            height: 25vh; /* Full height for the hero section */
+            &::after{
+                background-position: 70% 0%;;
+            }
+        }   
+    }
+     
+}

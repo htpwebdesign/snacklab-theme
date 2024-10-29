@@ -22,9 +22,6 @@ get_header();
         <?php if (has_post_thumbnail()) : ?>
             <?php $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
             <div class="hero-picture" style="--hero-bg-image: url('<?php echo esc_url($thumbnail_url); ?>');">
-                
-                <div class="hero-overlay">
-                </div>
             </div>
         <?php endif; ?>
 
@@ -62,9 +59,11 @@ get_header();
     <?php endwhile;?>
         </div>
         <?php
-        wp_reset_postdata(); // Restore global post data
-        echo do_shortcode("[gravityform id=3 title=true]");
-    else :
+        wp_reset_postdata();?> 
+        <div class="form-career">
+            <?php echo do_shortcode("[gravityform id=3 title=true]");?>
+        </div>
+    <?php else :
         echo '<p>No careers found.</p>';
         endif;
     endwhile; // End of the loop.

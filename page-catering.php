@@ -27,11 +27,12 @@ get_header();
 				<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 			</header><!-- .entry-header -->
 
-			<?php
-			if (has_post_thumbnail()) {
-				the_post_thumbnail();
-			}
-			?>
+	        <?php if (has_post_thumbnail()) : ?>
+            <?php $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
+            <div class="hero-picture" style="--hero-bg-image: url('<?php echo esc_url($thumbnail_url); ?>');">
+                
+            </div>
+        	<?php endif; ?>
 			<div class="entry-content">
 				<?php
 				the_content();

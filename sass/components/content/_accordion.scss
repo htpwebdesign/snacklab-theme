@@ -35,7 +35,7 @@
 
 @media (min-width: 47rem) {
     .accordion-list{
-        margin-top: 2rem;
+        margin: 3rem 0;
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
@@ -48,5 +48,12 @@
             width: unset;
         }
 
+    }
+}
+
+@media (min-width: 90rem) {
+    .accordion-list{
+      width: 80rem;
+      margin: 3rem auto;
     }
 }
