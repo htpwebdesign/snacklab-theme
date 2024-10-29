@@ -1,6 +1,7 @@
 /* Navigation
 --------------------------------------------- */
 @import "navigation/navigation";
+@import "navigation/cart-items";
 
 /* Posts and pages
 --------------------------------------------- */
@@ -30,7 +31,7 @@
 
 /* Accordion
 --------------------------------------------- */
-@import "media/accordion";
+@import "content/accordion";
 
 /* Footer
 --------------------------------------------- */
@@ -43,4 +44,10 @@
 /* Labs Page
 --------------------------------------------- */
 @import "content/labs";
+
+/* hero-img 
+--------------------------------------------- */
+@import "content/hero-img";
+
+
 

@@ -49,7 +49,9 @@
 				<!-- Marc Initial Commit -->
 
 
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'snacklab-theme'); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<input type="checkbox" role="button" aria-label="Display the menu" class="menu">
+				</button>
 				<?php
 				wp_nav_menu(
 					array(
@@ -58,19 +60,15 @@
 					)
 				);
 				?>
-				<div class="cart-in-nav">
-					<?php
-					if (function_exists('snacklab_theme_woocommerce_header_cart')) {
-						snacklab_theme_woocommerce_header_cart();
-					}
-					?>
-				</div>
 			</nav><!-- #site-navigation -->
-			<div class="cart-out-nav">
-				<?php
-				if (function_exists('snacklab_theme_woocommerce_header_cart')) {
-					snacklab_theme_woocommerce_header_cart();
-				}
-				?>
-			</div>
+<?php if (is_shop()): ?>
+    <div class="cart-items">
+        <?php
+        if (function_exists('snacklab_theme_woocommerce_header_cart')) {
+            snacklab_theme_woocommerce_header_cart();
+        }
+        ?>
+    </div>
+<?php endif; ?>
+
 		</header><!-- #masthead -->

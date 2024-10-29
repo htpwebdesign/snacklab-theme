@@ -1,12 +1,52 @@
 .main-navigation {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
   width: 100%;
+  background-color: #2c2c2c;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+
+  .site-branding {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      &:hover {
+        color: #c97c5d;
+      }
+      &:focus {
+        color: #c97c5d;
+      }
+      &:visited {
+        color: #fff;
+      }
+    }
+    span {
+      color: #c97c5d;
+    }
+  }
 
   ul {
     display: none;
     list-style: none;
     margin: 0;
     padding-left: 0;
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    background-color: #2c2c2c;
+    z-index: 99999;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
 
     ul {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -59,6 +99,8 @@
   a {
     display: block;
     text-decoration: none;
+    color: #fff;
+    font-weight: 600;
   }
 
   .current_page_item > a,
@@ -68,33 +110,135 @@
   }
 }
 
-.site-branding {
+/* Small menu. */
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem;
   position: absolute;
-  top: -1rem;
-  @include work-sans;
-  color: $color_white;
-  padding-left: 1rem;
-  a {
-    color: $color_white;
+  top: 0;
+  right: 0;
+  z-index: 9999999;
+  .menu {
+    --s: 2rem; /* control the size */
+    --c: white; /* the color */
+    height: var(--s);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--s) / 2) solid #0000;
+    box-sizing: content-box;
+    --_g1: linear-gradient(var(--c) 20%, #0000 0 80%, var(--c) 0) no-repeat
+      content-box border-box;
+    --_g2: radial-gradient(
+        circle closest-side at 50% 12.5%,
+        var(--c) 95%,
+        #0000
+      )
+      repeat-y content-box border-box;
+    background: var(--_g2) left var(--_p, 0px) top,
+      var(--_g1) left calc(var(--s) / 10 + var(--_p, 0px)) top,
+      var(--_g2) right var(--_p, 0px) top,
+      var(--_g1) right calc(var(--s) / 10 + var(--_p, 0px)) top;
+    background-size: 20% 80%, 40% 100%;
+    position: relative;
+    clip-path: inset(0 25%);
+    -webkit-mask: linear-gradient(90deg, #0000, #000 25% 75%, #0000);
+    cursor: pointer;
+    transition: background-position 0.3s var(--_s, 0.3s),
+      clip-path 0s var(--_s, 0.6s);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
-  .title-color {
-    color: $color_terracota;
+  .menu:before,
+  .menu:after {
+    content: "";
+    position: absolute;
+    border-radius: var(--s);
+    inset: 40% 0;
+    background: var(--c);
+    transition: transform 0.3s calc(0.3s - var(--_s, 0.3s));
+  }
+
+  .menu:checked {
+    clip-path: inset(0);
+    --_p: calc(-1 * var(--s));
+    --_s: 0s;
+  }
+  .menu:checked:before {
+    transform: rotate(45deg);
+  }
+  .menu:checked:after {
+    transform: rotate(-45deg);
+  }
+  .menu:focus-visible {
+    clip-path: none;
+    -webkit-mask: none;
+    border: none;
+    outline: 2px solid var(--c);
+    outline-offset: 5px;
   }
 }
 
-/* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.main-navigation.toggled ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 37.5em) {
+  .main-navigation {
+    padding: 0;
+    display: block;
+
+    ul {
+      opacity: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+  }
   .menu-toggle {
     display: none;
   }
 
   .main-navigation ul {
     display: flex;
+    position: static;
+    width: auto;
+  }
+
+  .site-branding {
+    position: absolute;
+    top: 0.75rem;
+    left: 0;
+    @include work-sans;
+    color: $color_white;
+    padding-left: 1rem;
+    z-index: 9999;
+    a {
+      color: $color_white;
+    }
+    .title-color {
+      color: $color_terracota;
+    }
   }
 }
 
@@ -121,13 +265,6 @@
 
 // Custom Styling - Snack Lab
 
-.cart-in-nav {
-  display: none;
-}
-
-.cart-out-nav {
-  display: block;
-}
 
 @media screen and (min-width: 37.5em) {
   .main-navigation ul {
@@ -159,7 +296,7 @@
   .cart-in-nav {
     display: block;
   }
-  
+
   .cart-out-nav {
     display: none;
   }
