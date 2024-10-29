@@ -16,14 +16,15 @@ get_header();
         the_post();
         ?>
         <header class="entry-header">
-            <!-- <?php the_title('<h1 class="entry-title">', '</h1>'); ?> -->
+             <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+             <?php if (has_post_thumbnail()) : ?>
+                <div class="hero-picture" >
+                    <?php the_post_thumbnail(); ?>
+                </div>
+                <?php endif; ?>
         </header>
-
-        <?php if (has_post_thumbnail()) : ?>
-            <?php $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
-            <div class="hero-picture" style="--hero-bg-image: url('<?php echo esc_url($thumbnail_url); ?>');">
-            </div>
-        <?php endif; ?>
+        <div class ="hero-img-overlay"></div>
+            
 
         <div class="content-wrapper">
             <?php the_content();?>

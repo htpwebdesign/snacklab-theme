@@ -38,10 +38,10 @@
         margin: 3rem 0;
         display: flex;
         gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
         .accordion {
-            width: 40%;
+            width: 50rem;
             max-width: 30rem;
         }
         p{

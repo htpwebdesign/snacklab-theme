@@ -1,26 +1,111 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-.hero-picture {
-    position: relative;
-    height: 25vh; /* Full height for the hero section */
-    overflow: hidden;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.hero-picture::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 35vh;
-    width: 100vw;
-    z-index: -1;
-    background-image: var(--hero-bg-image); /* Dynamic background image */
-    background-size: cover;
-    background-position: center; /* Adjust as needed */
+.entry-header {
+    position: relative;
+    h1 {
+        color: white;
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-50%);
+    }
+    .hero-picture {
+        position: relative;
+        height: 40vh;
+        clip-path: inset(0);
+        background-color: black;
+    img {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      object-fit: cover;
+      object-position: center 0;
+      height: calc(40vh + 3.25rem);
+      z-index: -1;
+      opacity: 0.5;
+    }
+  }
 }
+.hero-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
+  z-index: -1;
+}
+
+@media (min-width: 31.25rem) {
+  .entry-header {
+    .hero-picture{
+        height: 60vh;
+        img{
+            object-position: center 20%;
+            height: calc(60vh + 3.25rem);
+        }
+    }
+    
+  }
+}
+
+@media (min-width: 43.75rem) {
+  .hero-picture {
+    // height: 45vh;
+  }
+}
+
+@media (min-width: 56.25rem) {
+  .hero-picture {
+    // height: 55vh;
+  }
+}
+
+@media (min-width: 62.5rem) {
+  .entry-header {
+    .hero-picture {
+      img {
+        // top: -5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 81.25rem) {
+  .entry-header {
+    .hero-picture {
+      img {
+        top: -15rem;
+      }
+    }
+  }
+}
+
+// .hero-picture::after {
+//     content: "";
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     height: 35vh;
+//     width: 100vw;
+//     z-index: -1;
+//     background-image: var(--hero-bg-image); /* Dynamic background image */
+//     background-size: cover;
+//     background-position: center; /* Adjust as needed */
+// }
 
 // .hero-overlay {
 //     position: absolute;
@@ -35,51 +120,49 @@ html, body {
 //     z-index: 1;
 // }
 
-.hero-title {
-    font-size: 3em;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-}
+// .hero-title {
+//     font-size: 3em;
+//     color: white;
+//     font-weight: bold;
+//     text-align: center;
+// }
 
-@media (min-width: 47rem) {
-    .hero-picture {
-        height: 45vh; /* Full height for the hero section */
-        &::after{
-          height: 50vh;
-        }
-    }    
-}
+// @media (min-width: 47rem) {
+//     .hero-picture {
+//         height: 45vh;
+//         &::after{
+//           height: 50vh;
+//         }
+//     }
+// }
 
-
-@media (min-width: 90rem) {
-    .hero-picture {
-        height: 80vh; /* Full height for the hero section */
-        &::after{
-          height: 70vh;
-        }
-    }    
-}
-
+// @media (min-width: 90rem) {
+//     .hero-picture {
+//         height: 100vh; /* Full height for the hero section */
+//         &::after{
+//           height: 100vh;
+//         }
+//     }
+// }
 
 //cathering
-.page-id-28{
-    .hero-picture {
-        height: 15vh; /* Full height for the hero section */
-    }
-    &:after{
-        background-position: 80% 0%;;
-    }
-}
+// .page-id-28{
+//     .hero-picture {
+//         // height: 15vh; /* Full height for the hero section */
+//     }
+//     &:after{
+//         background-position: 80% 10%;;
+//     }
+// }
 
-@media (min-width: 47rem) {
-    .page-id-28{
-        .hero-picture {
-            height: 25vh; /* Full height for the hero section */
-            &::after{
-                background-position: 70% 0%;;
-            }
-        }   
-    }
-     
-}
+// @media (min-width: 47rem) {
+//     .page-id-28{
+//         .hero-picture {
+//             height: 25vh; /* Full height for the hero section */
+//             &::after{
+//                 background-position: 70% 0%;;
+//             }
+//         }
+//     }
+
+// }
