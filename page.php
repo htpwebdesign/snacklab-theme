@@ -21,13 +21,36 @@ get_header();
 	<?php
 	while (have_posts()) :
 		the_post();
+		?>
+		<header class="entry-header">
+			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+		</header><!-- .entry-header -->
+		<?php
 
-		get_template_part('template-parts/content', 'page');
+		$intro = get_field('intro_about_us');
+		if($intro){
+			echo '<p>'.$intro.'</p>';
+		}
+		
+		$title_1 = get_field('title_1');
+		if($title_1){
+			echo '<h2>'.$title_1.'</h2>';
+		}
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if (comments_open() || get_comments_number()) :
-			comments_template();
-		endif;
+		// need to pull images somehow
+		// $team_member = get_field('team_member');
+		
+		$title_2 = get_field('title_2');
+		if($title_2){
+			echo '<h2>'.$title_2.'</h2>';
+		}
+
+
+		$paragraph_about = get_field('paragraph_about');
+		if($title_2){
+			echo '<p>'.$paragraph_about.'</p>';
+		}
+
 
 	endwhile; // End of the loop.
 	?>
