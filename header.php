@@ -61,14 +61,8 @@
 				);
 				?>
 			</nav><!-- #site-navigation -->
-<?php if (is_shop()): ?>
-    <div class="cart-items">
-        <?php
-        if (function_exists('snacklab_theme_woocommerce_header_cart')) {
-            snacklab_theme_woocommerce_header_cart();
-        }
-        ?>
     </div>
+	<?php if (is_shop()): ?>
 <?php endif; ?>
 
 		</header><!-- #masthead -->

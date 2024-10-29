@@ -292,12 +292,10 @@
       }
     }
   }
-
-  .cart-in-nav {
-    display: block;
-  }
-
-  .cart-out-nav {
-    display: none;
-  }
 }
+
+      .cart-link {
+        color: $color_terracota !important;
+      }
+
+
