@@ -6,8 +6,9 @@
   padding: 0.5rem;
   width: 100%;
   background-color: #2c2c2c;
-  position: relative;
+  position: fixed;
   transition: all 0.3s ease-in-out;
+  z-index: 99999999;
 
   .site-branding {
     display: flex;
@@ -296,7 +297,3 @@
     }
   }
 }
-
-
-
-
