@@ -62,7 +62,4 @@
 				?>
 			</nav><!-- #site-navigation -->
     </div>
-	<?php if (is_shop()): ?>
-<?php endif; ?>
-
 		</header><!-- #masthead -->
