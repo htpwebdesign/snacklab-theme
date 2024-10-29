@@ -209,3 +209,66 @@
     }
   }
 }
+
+// ACF Cards
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
+  padding: 2rem 0;
+
+  .card {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: rgba(0, 0, 0, 0.15) 0 8px 12px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 1rem 1rem;
+      color: #666;
+    }
+
+    a {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      background-color: #c97c5d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.25rem;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #d18e6e;
+      }
+    }
+  }
+}
