@@ -8,9 +8,12 @@
         width: 100%;
         text-align: center;
         text-transform: uppercase;
+        font-size: 2.2rem;
+        color: $color_charcoal;
+        margin-top: 4rem;
     }
     .entry-content {
-        margin: 4rem 0 10rem;
+        margin-bottom: 12rem;
 
         iframe {
             margin: 3rem auto;
