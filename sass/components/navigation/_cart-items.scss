@@ -1,0 +1,21 @@
+.cart-items {
+    ul {
+        margin-right: 1rem;
+    }
+    li {
+        text-align: right;
+    }
+    .count {
+        @include work-sans;
+        font-weight: 700;
+        color: $color_charcoal;
+    }
+    .cart-contents {
+        // text-align: right;
+    }
+}
+
+.widget_shopping_cart {
+    background-color: yellow;
+    max-width: 20rem;
+}
