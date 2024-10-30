@@ -1,0 +1,125 @@
+// this is to remove the margin at the bottom of the page underneath the footer
+.post,
+.page {
+    margin: 0;
+}
+
+.site-footer {
+    padding: 2rem;
+    background-color: $color-charcoal;
+    color: $color-white;
+    text-align: center;
+    text-transform: uppercase;
+
+    a,
+    a:visited,
+    a:active,
+    a:hover {
+        color: $color_mustard;
+    }
+
+    .site-branding-footer {
+        @include work-sans;
+        font-size: 1.8rem;
+        color: $color_white;
+        a {
+            color: $color_white;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .title-color {
+            color: $color_terracota;
+        }
+    }
+
+
+    .footer-nav-menu {
+        margin: 4rem 0;
+
+        a {
+            color: $color_white;
+            text-decoration: underline;
+            padding-bottom: 0.1rem;
+            &:hover {
+                text-decoration: none;
+                color: $color_mustard;
+            }
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-content: center;
+            height: 5rem;
+
+            li {
+                width: 7rem;
+            }
+        }
+    }
+
+    .footer-social-menu {
+        margin: 4rem 0;
+
+        h3 {
+            color: $color_mustard;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0;
+
+            svg {
+                fill: $color_mustard;
+                width: 2rem;
+                height: 2rem;
+                &:hover {
+                    fill: $color_white;
+                }
+            }
+        }
+    }
+        
+    .site-info {
+        margin: 4rem 0 1rem;
+        text-transform: none;
+    }
+}
+
+@media (min-width: 47rem) {
+    .site-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: baseline;
+
+        .site-branding-footer {
+            // height: fit-content;
+            align-self: center;
+            h2 {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .footer-nav-menu {
+            margin: 0;
+        }
+
+        .footer-social-menu {
+            margin: 0;
+        }
+        
+        .site-info {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

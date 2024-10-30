@@ -1,21 +1,107 @@
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+// button,
+// input[type="button"],
+// input[type="reset"],
+// input[type="submit"] {
+// 	border: 1px solid;
+// 	border-color: $color__border-button;
+// 	border-radius: 3px;
+// 	background: $color__background-button;
+// 	color: rgba(0, 0, 0, 0.8);
+// 	line-height: 1;
+// 	padding: 0.6em 1em 0.4em;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
+// 	&:hover {
+// 		border-color: $color__border-button-hover;
+// 	}
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+// 	&:active,
+// 	&:focus {
+// 		border-color: $color__border-button-focus;
+// 	}
+// }
+
+/* Mobile-first layout (small screens) */
+.filter-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px; /* Optional: Adds space between buttons */
+    max-width: 12rem;
+}
+
+#dropdown-toggle {
+    display: block;
+    background-color: $color_charcoal;
+    color: $color_white;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    font-weight: 700;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    button {
+        background-color: $color_charcoal;
+        color: $color_white;
+    }
+    button.active {
+        background-color: $color_terracota;
+    }
+}
+
+.dropdown-content.show {
+    display: flex;
+}
+
+a#sp-wqv-view-button.button.sp-wqv-view-button {
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Large screens */
+@media (min-width: 43.75em) {
+    .filter-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #dropdown-toggle {
+        display: none;
+    }
+
+    .dropdown-content {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        margin: 2rem auto;
+        button {
+            min-width: 8rem;
+            font-weight: 700;
+        }
+        button:last-child {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        button:first-child {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+}
+}
+
+#sp-wqv-view-button {
+    position: absolute;
+    bottom: 4rem;
+}
+
+#sp-wqv-view-button.sp-wqv-view-button.button {
+    font-size: 1rem;
 }

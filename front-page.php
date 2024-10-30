@@ -35,7 +35,7 @@ get_header();
 				echo '<div class="swiper">';
 				echo '<div class="swiper-wrapper">';
 				foreach ($hero_gallery as $image) {
-					echo '<div class="swiper-slide">';
+					echo '<div class="swiper-slide" data-swiper-autoplay="3500">';
 					echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
 					echo '</div>';
 				}
@@ -51,24 +51,57 @@ get_header();
 			}
 
 
+
 			//ACF hero_title field
 			$hero_title = get_field('hero_text');
 
+			echo '<div class="hero-text-container">';
+
 			if ($hero_title) {
-				echo '<div class="hero-text">';
-				echo '<h1>' . esc_html($hero_title) . '</h1>';
-				echo '</div>';
+
+				echo '<h1 class="hero-text">' .  $hero_title . '</h1>';
 			}
 
 			// ACF Hero Description 
 			$hero_description = get_field('hero_description');
 
 			if ($hero_description) {
-				echo '<div class="hero-description">';
-				echo '<p>' . esc_html($hero_description) . '</p>';
-				echo '</div>';
+				echo '<p class="hero-description">' . esc_html($hero_description) . '</p>';
 			}
+
+			echo '<div class="cta-buttons">';
+
+			// ACF Link field 'cta_home_one'
+			$cta_home_one = get_field('cta_home_one');
+
+			if ($cta_home_one) {
+				echo '<button class="cta-home-one">';
+
+				echo '<a href="' . esc_url($cta_home_one) . '">View Menu</a>';
+
+				echo '</button>';
+			}
+
+			// ACF Link field 'cta_home_two'
+			$cta_home_two = get_field('cta_home_two');
+
+			if ($cta_home_two) {
+				echo '<button class="cta-home-two">';
+
+				echo '<a href="' . esc_url($cta_home_two) . '">See Our Locations</a>';
+
+				echo '</button>';
+			}
+
+			echo '</div>';
+
+			echo '</div>';
+
 			echo '</article>';
+
+
+
+
 			?>
 
 		</section>
@@ -86,19 +119,23 @@ get_header();
 		}
 
 		// ACF repeater field 'cards'
-		if (have_rows('cards')) {
+		if (function_exists('have_rows') && have_rows('cards')) {
 			echo '<section class="cards">';
 			while (have_rows('cards')) {
 				the_row();
-				$card_image_id = get_sub_field('card_image');
-				$card_title = get_sub_field('card_title');
-				$card_description = get_sub_field('card_description');
-				$card_link = get_sub_field('card_link');
+				if (function_exists('get_sub_field')) {
+					$card_image_id = get_sub_field('card_image');
+					$card_title = get_sub_field('card_title');
+					$card_description = get_sub_field('card_description');
+					$card_link = get_sub_field('card_link');
+				}
 
 				echo '<div class="card">';
-				if ($card_image_id) {
-					$image_url = wp_get_attachment_image($card_image_id, 'full');
-					echo $image_url;
+				if (!empty($card_image_id)) {  // Ensure that card_image_id is not empty
+					$image_url = wp_get_attachment_image_url($card_image_id, 'medium');
+					if ($image_url) {
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($card_title) . '">';
+					}
 				}
 				if ($card_title) {
 					echo '<h2>' . esc_html($card_title) . '</h2>';
@@ -109,20 +146,46 @@ get_header();
 				if ($card_link) {
 					echo '<a href="' . esc_url($card_link['url']) . '">' . esc_html($card_link['title']) . '</a>';
 				}
-				echo '</div>';
+				echo '</div>'; // Close the card div
 			}
-			echo '</section>';
+			echo '</section>'; // Close the section
 		}
 
-		// Announcement Scroller
 
-		$announcement_scroller = get_field('announcement_scroller');
+		// ACF repeater field 'announcement_repeater'
 
-		if ($announcement_scroller) {
-			echo '<div class="announcement-scroller">';
-			echo '<p>' . esc_html($announcement_scroller) . '</p>';
+		if (have_rows('announcement_repeater')) {
+			echo '<section class="announcement-repeater">';
+			while (have_rows('announcement_repeater')) {
+				the_row();
+				$announcement_image_id = get_sub_field('announcement_image');
+				$announcement_title = get_sub_field('announcement_title');
+				$announcement_description = get_sub_field('announcement_description');
 
-			echo '</div>';
+
+		?>
+
+		<?php
+
+
+				echo '<div class="announcement" data-aos="fade-up">';
+				if (!empty($announcement_image_id)) {
+					$image_url = wp_get_attachment_image_url($announcement_image_id, 'medium');
+					if ($image_url) {
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($announcement_title) . '">';
+					}
+				}
+				echo '<div class="announcement-content">';
+				if ($announcement_title) {
+					echo '<h2>' . esc_html($announcement_title) . '</h2>';
+				}
+				if ($announcement_description) {
+					echo '<p>' . esc_html($announcement_description) . '</p>';
+				}
+				echo '</div>'; // Close the announcement-content div
+				echo '</div>'; // Close the announcement div
+			}
+			echo '</section>'; // Close the section
 		}
 
 		?>
@@ -144,19 +207,78 @@ get_header();
 
 
 			if (have_rows('reviews')) {
-				echo '<article class="reviews">';
+				echo '<article class="reviews reviews-row-1">';
 				while (have_rows('reviews')) {
 					the_row();
 					$review_name = get_sub_field('review_name');
-					$review_content = get_sub_field('review_content');
 					$review_stars = get_sub_field('review_stars');
 
 					echo '<div class="review">';
 					if ($review_name) {
 						echo '<h3>' . esc_html($review_name) . '</h3>';
 					}
-					if ($review_content) {
-						echo '<p>' . esc_html($review_content) . '</p>';
+					if ($review_stars) {
+						echo '<div class="review-stars">';
+						for ($i = 0; $i < $review_stars; $i++) {
+							echo '<span class="star">&#9733;</span>'; // Unicode star character
+						}
+						echo '</div>';
+					}
+					echo '</div>';
+				}
+
+				// duplicate here for the infinite loop effect of row one
+				while (have_rows('reviews')) {
+					the_row();
+					$review_name = get_sub_field('review_name');
+					$review_stars = get_sub_field('review_stars');
+
+					echo '<div class="review">';
+					if ($review_name) {
+						echo '<h3>' . esc_html($review_name) . '</h3>';
+					}
+					if ($review_stars) {
+						echo '<div class="review-stars">';
+						for ($i = 0; $i < $review_stars; $i++) {
+							echo '<span class="star">&#9733;</span>'; // Unicode star character
+						}
+						echo '</div>';
+					}
+					echo '</div>';
+				}
+				echo '</article>';
+			}
+
+			if (have_rows('reviews')) {
+				echo '<article class="reviews reviews-row-2">';
+				while (have_rows('reviews')) {
+					the_row();
+					$review_name = get_sub_field('review_name');
+					$review_stars = get_sub_field('review_stars');
+
+					echo '<div class="review">';
+					if ($review_name) {
+						echo '<h3>' . esc_html($review_name) . '</h3>';
+					}
+					if ($review_stars) {
+						echo '<div class="review-stars">';
+						for ($i = 0; $i < $review_stars; $i++) {
+							echo '<span class="star">&#9733;</span>'; // Unicode star character
+						}
+						echo '</div>';
+					}
+					echo '</div>';
+				}
+
+				// duplicate here for the infinite loop effect of row two!
+				while (have_rows('reviews')) {
+					the_row();
+					$review_name = get_sub_field('review_name');
+					$review_stars = get_sub_field('review_stars');
+
+					echo '<div class="review">';
+					if ($review_name) {
+						echo '<h3>' . esc_html($review_name) . '</h3>';
 					}
 					if ($review_stars) {
 						echo '<div class="review-stars">';
@@ -175,7 +297,11 @@ get_header();
 
 			if ($review_cta) {
 				echo '<div class="review-cta">';
-				echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '<a href="';
+					echo home_url();
+				echo '">';
+					echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '</a>';
 				echo '</div>';
 			}
 			?>
@@ -193,9 +319,13 @@ get_header();
 	endwhile; // End of the loop.
 	?>
 
+	<?php
+
+
+	?>
+
 </main><!-- #main -->
 
 <?php
-
 get_footer();
 ?>

@@ -24,16 +24,14 @@ get_header();
 	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
-				<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-			</header><!-- .entry-header -->
-
-			<?php
-			if (has_post_thumbnail()) {
-				the_post_thumbnail();
-			}
-			?>
-
-
+				<?php the_title('<h1 class="entry-title-hero">', '</h1>'); ?>
+				<?php if (has_post_thumbnail()) : ?>
+					<div class="hero-picture" >
+						<?php the_post_thumbnail(); ?>
+					</div>
+					<?php endif; ?>
+			</header>
+			<div class ="hero-img-overlay"></div>
 			<div class="entry-content">
 				<?php
 				the_content();
@@ -43,18 +41,21 @@ get_header();
 					$images = get_field('catering_gallery');
 					if ($images) {
 						foreach ($images as $image) {
-							echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
-							echo '<div class="description">' . esc_html($image['description']) . '</div>'; // Display Description
-							echo '</div>';
+							echo '<div class="catering-item">'; // Add a wrapper div around each item
+							echo wp_get_attachment_image($image['ID'], 'full');
+							if (!empty($image['description'])) {
+								echo '<div class="catering-text-wrapper"><p>' . esc_html($image['description']) . '</div></p>';
+							}
+							echo '</div>'; // Close the wrapper div
 						}
 					}
-
 					?>
-					<div class="form-catering">
-						<?php
-						echo do_shortcode('[gravityform id="1" title="true"]');
-						?>
-					</div>
+				</div>
+
+				<div class="form-catering">
+					<?php
+					echo do_shortcode('[gravityform id="1" title="true"]');
+					?>
 				</div>
 			</div><!-- .entry-content -->
 

@@ -12,29 +12,31 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div>
-			<?php the_custom_logo(); ?>
-			<h2 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h2>
-		</div> <!-- Logo / link to home -->
+		
+		<div class="site-branding-footer">
+			<h2>
+				<a href="<?php echo home_url(); ?>">
+					<?php the_field('site_title', 31); ?>
+				</a>
+			</h2>
+		</div><!-- .site-branding -->
 
-		<div>
-			<section class="footer-nav-menu">
-				<h3>Navigate The Lab</h3>
-				<nav class='footer-navigation'>
-					<?php
-						wp_nav_menu( array( 'theme_location' => 'footer-navigation' ) );
-						?>
-				</nav>
-			</section>
-			<section class='footer-social-menu'>
-				<h3>Stay Connected</h3>
-				<nav class='footer-navigation'>
-					<?php
-						wp_nav_menu( array( 'theme_location' => 'footer-social-links' ) );
-						?>
-				</nav>
-			</section>
-		</div> <!-- .footer-menus -->
+		<div class="footer-nav-menu">
+			<h3>Navigate The Lab</h3>
+			<nav class='footer-navigation'>
+				<?php
+					wp_nav_menu( array( 'theme_location' => 'footer-navigation' ) );
+					?>
+			</nav>
+		</div>
+		<div class='footer-social-menu'>
+			<h3>Stay Connected</h3>
+			<nav class='footer-navigation'>
+				<?php
+					wp_nav_menu( array( 'theme_location' => 'footer-social-links' ) );
+					?>
+			</nav>
+			</div>
 
 		<div class="site-info">
 			<?php
@@ -42,12 +44,10 @@
 			the_privacy_policy_link();
 			printf( esc_html__( ' | Created by ', 'snacklab-theme' ), 'snacklab-theme' );
 			?>
-			<p>
-				<a href="https://www.marcsapa.com/" target="_blank"><?php esc_html_e('Marc', 'snacklab-theme') ?></a>, 
-				<a href="" target="_blank"><?php esc_html_e('Gustavo', 'snacklab-theme') ?></a>, 
-				<a href="https://hawhawtan.com/" target="_blank"><?php esc_html_e('Haw Haw', 'snacklab-theme') ?></a>, and
-				<a href="https://kaleblink.com/" target="_blank"><?php esc_html_e('Kaleb!', 'snacklab-theme') ?></a>
-			</p>
+			<a href="https://www.marcsapa.com/" target="_blank"><?php esc_html_e('Marc', 'snacklab-theme') ?></a>, 
+			<a href="https://ghyamamoto.com/" target="_blank"><?php esc_html_e('Gustavo', 'snacklab-theme') ?></a>, 
+			<a href="https://hawhawtan.com/" target="_blank"><?php esc_html_e('Haw Haw', 'snacklab-theme') ?></a>, and
+			<a href="https://kaleblink.com/" target="_blank"><?php esc_html_e('Kaleb!', 'snacklab-theme') ?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

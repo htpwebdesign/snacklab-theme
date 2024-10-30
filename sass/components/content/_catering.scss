@@ -1,0 +1,37 @@
+.catering-gallery {
+    // max-width: 25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+        img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        max-width: 25rem;
+    }
+}
+
+.catering-gallery {
+    gap: 1rem;
+}
+
+.catering-item {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px;
+    overflow: hidden;
+    width: 25rem;
+}
+
+.catering-text-wrapper {
+    p {
+        color: $color_charcoal;
+        font-weight: 400;
+    }
+}
+
+.form-catering {
+    width: 50rem;
+    margin: 0 auto 2rem;
+}

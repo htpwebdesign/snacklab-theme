@@ -20,7 +20,7 @@ function snacklab_theme_woocommerce_setup() {
 	add_theme_support(
 		'woocommerce',
 		array(
-			'thumbnail_image_width' => 150,
+			'thumbnail_image_width' => 320,
 			'single_image_width'    => 300,
 			'product_grid'          => array(
 				'default_rows'    => 3,
@@ -189,7 +189,8 @@ if ( ! function_exists( 'snacklab_theme_woocommerce_cart_link' ) ) {
 				WC()->cart->get_cart_contents_count()
 			);
 			?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+			<!-- <span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span>  -->
+			<span class="count"><?php echo esc_html( $item_count_text ); ?></span>
 		</a>
 		<?php
 	}
@@ -225,3 +226,6 @@ if ( ! function_exists( 'snacklab_theme_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);

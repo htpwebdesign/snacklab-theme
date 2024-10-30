@@ -1,0 +1,37 @@
+.content-wrapper {
+    padding: 1rem 2rem;
+    // margin-top: 2rem;
+    background-color: white;
+    z-index: 2;
+
+}
+
+
+@media (min-width: 47rem) {
+  .content-wrapper{
+    p{
+        margin: 0 auto;
+        width: 40rem;
+    }
+  }
+  .wp-block-group{
+      width: 35rem;
+      margin: 0 auto;
+  }
+}
+
+@media (min-width: 90rem) {
+    .content-wrapper{
+        p{
+            margin: 0 auto;
+            width: 60rem;
+        }
+      }
+      .wp-block-group{
+          width: 45rem;
+          margin: 0 auto;
+          p{
+            width: unset;
+          }
+      }
+}

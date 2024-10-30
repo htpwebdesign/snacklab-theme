@@ -3,7 +3,11 @@ jQuery(document).ready(function ($) {
   var $grid = $(".products-grid").isotope({
     // options
     itemSelector: ".product-item",
-    layoutMode: "fitRows",
+    layoutMode: "masonry",
+    // masonry: {
+    //   columnWidth: 320,
+    //   isFitWidth: true
+    // },
     percentPosition: true,
     // Optional: Customize animation duration and easing
     transitionDuration: "0.6s",

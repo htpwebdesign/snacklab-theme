@@ -5,6 +5,8 @@
 /* Posts and pages
 --------------------------------------------- */
 @import "content/posts-and-pages";
+@import "content/front-page";
+@import "content/catering";
 
 /* Comments
 --------------------------------------------- */
@@ -28,4 +30,27 @@
 
 /* Accordion
 --------------------------------------------- */
-@import "media/accordion";
+@import "content/accordion";
+
+/* Footer
+--------------------------------------------- */
+@import "content/footer";
+
+/* testimonials
+--------------------------------------------- */
+@import "content/testimonials";
+
+/* Labs Page
+--------------------------------------------- */
+@import "content/labs";
+
+/* hero-img 
+--------------------------------------------- */
+@import "content/hero-img";
+
+/* About us 
+--------------------------------------------- */
+@import "content/about-us";
+
+
+
