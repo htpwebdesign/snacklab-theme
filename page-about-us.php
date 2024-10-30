@@ -54,16 +54,16 @@ get_header();
 				$title_2 = get_field('title_2');
 				if($title_2){ ?>
 					<div id="our-baking">
-						<?echo '<h2>'.$title_2.'</h2>';
+						<?php echo '<h2>'.$title_2.'</h2>';
 							$paragraph_about = get_field('paragraph_about');
-							if($title_2){
+							if($paragraph_about){
 								echo '<p>'.$paragraph_about.'</p>';
 							}?>
 					</div>
 				<?php } 
 			endwhile; // End of the loop.
 			?>
-		</div>
+			</div>
 </main><!-- #main -->
 <?php
 
