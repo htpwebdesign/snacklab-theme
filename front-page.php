@@ -297,7 +297,11 @@ get_header();
 
 			if ($review_cta) {
 				echo '<div class="review-cta">';
-				echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '<a href="';
+					echo home_url();
+				echo '">';
+					echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '</a>';
 				echo '</div>';
 			}
 			?>
