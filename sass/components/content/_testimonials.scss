@@ -5,18 +5,42 @@
         color: $color_mustard;
         font-size: 2.2rem;
         text-transform: uppercase;
-        margin: 0 3rem 0 0;
+        margin: 3rem;
         padding: 1rem 0;
     }
 
     .reviews {
         display: flex;
         width: fit-content;
-        overflow: scroll; 
-
-        transition: 0.3s all;
+        overflow: hidden; 
     }
+    .reviews-row-1 {
+        animation: scrollLeft 80s linear infinite;
     
+        @keyframes scrollLeft {
+            0% {  
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    .reviews-row-2 {
+        flex-direction: row-reverse;
+        animation: scrollRight 80s linear infinite;
+    
+        @keyframes scrollRight {
+            0% {  
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+    }
+
     .review {
         margin: 0.5rem;
         padding: 0.5rem 1rem;
@@ -26,17 +50,6 @@
         width: 18rem;
         height: 6rem;
 
-        animation: scroll 10s linear infinite;
-
-        @keyframes scroll {
-            0% {  
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-200%);
-            }
-        }
-
         h3 {
             font-size: 1rem;
             margin: 0;
@@ -47,44 +60,16 @@
         }
     }
 
-    .review-row-2 {
-        margin: 0.5rem;
-        padding: 0.5rem 1rem;
-        background-color: #ffffff;
-        border-radius: 0.5rem;
-        border: 2px solid $color_charcoal;
-        width: 18rem;
-        height: 6rem;
-
-        animation: scrollRight 10s linear infinite;
-
-        @keyframes scrollRight {
-            0% {  
-                transform: translateX(-200%);
+    .review-cta { 
+            h2 {
+                color: $color_dblue;
+                margin: 3rem;
+                padding: 1rem 0;
+                text-align: right;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
-            100% {
-                transform: translateX(0%);
-            }
-        }
-
-        h3 {
-            font-size: 1rem;
-            margin: 0;
-            max-width: 20rem;
-        }
-        .review-stars {
-            color: $color_terracota;
-        }
-    }
-
-
-
-    .review-cta {
-        align-content: center;
-        h2 {
-            color: $color_dblue;
-            margin: 0 0 0 3rem;
-            padding: 1rem 0;
-        }
+        
     }
 }

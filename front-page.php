@@ -207,7 +207,27 @@ get_header();
 
 
 			if (have_rows('reviews')) {
-				echo '<article class="reviews">';
+				echo '<article class="reviews reviews-row-1">';
+				while (have_rows('reviews')) {
+					the_row();
+					$review_name = get_sub_field('review_name');
+					$review_stars = get_sub_field('review_stars');
+
+					echo '<div class="review">';
+					if ($review_name) {
+						echo '<h3>' . esc_html($review_name) . '</h3>';
+					}
+					if ($review_stars) {
+						echo '<div class="review-stars">';
+						for ($i = 0; $i < $review_stars; $i++) {
+							echo '<span class="star">&#9733;</span>'; // Unicode star character
+						}
+						echo '</div>';
+					}
+					echo '</div>';
+				}
+
+				// duplicate here for the infinite loop effect of row one
 				while (have_rows('reviews')) {
 					the_row();
 					$review_name = get_sub_field('review_name');
@@ -230,13 +250,33 @@ get_header();
 			}
 
 			if (have_rows('reviews')) {
-				echo '<article class="reviews">';
+				echo '<article class="reviews reviews-row-2">';
 				while (have_rows('reviews')) {
 					the_row();
 					$review_name = get_sub_field('review_name');
 					$review_stars = get_sub_field('review_stars');
 
-					echo '<div class="review-row-2">';
+					echo '<div class="review">';
+					if ($review_name) {
+						echo '<h3>' . esc_html($review_name) . '</h3>';
+					}
+					if ($review_stars) {
+						echo '<div class="review-stars">';
+						for ($i = 0; $i < $review_stars; $i++) {
+							echo '<span class="star">&#9733;</span>'; // Unicode star character
+						}
+						echo '</div>';
+					}
+					echo '</div>';
+				}
+
+				// duplicate here for the infinite loop effect of row two!
+				while (have_rows('reviews')) {
+					the_row();
+					$review_name = get_sub_field('review_name');
+					$review_stars = get_sub_field('review_stars');
+
+					echo '<div class="review">';
 					if ($review_name) {
 						echo '<h3>' . esc_html($review_name) . '</h3>';
 					}
@@ -257,7 +297,11 @@ get_header();
 
 			if ($review_cta) {
 				echo '<div class="review-cta">';
-				echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '<a href="';
+					echo home_url();
+				echo '">';
+					echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '</a>';
 				echo '</div>';
 			}
 			?>
