@@ -297,7 +297,7 @@ get_header();
 
 			if ($review_cta) {
 				echo '<div class="review-cta">';
-				echo '<h2>' . esc_html($review_cta) . '</h2>';
+				echo '<a href="' . esc_html($review_cta) . '"><h2>Order Now!</h2></a>';
 				echo '</div>';
 			}
 			?>

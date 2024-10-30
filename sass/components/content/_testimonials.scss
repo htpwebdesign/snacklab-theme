@@ -61,11 +61,14 @@
     }
 
     .review-cta { 
+        display: flex;
+        justify-content: flex-end;
             h2 {
+                width: fit-content;
                 color: $color_dblue;
                 margin: 3rem;
                 padding: 1rem 0;
-                text-align: right;
+                text-transform: uppercase;
                 &:hover {
                     text-decoration: underline;
                 }
