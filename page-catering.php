@@ -24,15 +24,14 @@ get_header();
 	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
-				<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-			</header><!-- .entry-header -->
-
-	        <?php if (has_post_thumbnail()) : ?>
-            <?php $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
-            <div class="hero-picture" style="--hero-bg-image: url('<?php echo esc_url($thumbnail_url); ?>');">
-                
-            </div>
-        	<?php endif; ?>
+				<?php the_title('<h1 class="entry-title-hero">', '</h1>'); ?>
+				<?php if (has_post_thumbnail()) : ?>
+					<div class="hero-picture" >
+						<?php the_post_thumbnail(); ?>
+					</div>
+					<?php endif; ?>
+			</header>
+			<div class ="hero-img-overlay"></div>
 			<div class="entry-content">
 				<?php
 				the_content();
