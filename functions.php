@@ -302,11 +302,40 @@ function add_custom_dashboard_widget() {
     );
 }
 
-// function custom_dashboard_help() {
-//     echo '<p>Watch the video below to learn how to edit posts:</p>';
-//     echo '<iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+function remove_unwanted_dashboard_widgets() {
+    // Remove "At a Glance" widget
+    remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
 
-// }
+    // Remove "Welcome" panel
+    // remove_action('welcome_panel', 'wp_welcome_panel');
+
+    // Remove "WordPress Events and News" widget
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');
+
+    // Remove "Activity" widget
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+
+	remove_meta_box('themeisle', 'dashboard', 'normal'); // Example ID for Tutorials widget
+    remove_meta_box('dashboard_guides', 'dashboard', 'normal');    // 
+}
+add_action('wp_dashboard_setup', 'remove_unwanted_dashboard_widgets');
+
+function remove_menu_pages() {
+    remove_menu_page('edit.php');           // Removes "Posts"
+    remove_menu_page('edit-comments.php');  // Removes "Comments"
+}
+add_action('admin_menu', 'remove_menu_pages');
+
+
+function remove_menu_items_for_non_admins() {
+    if (!current_user_can('manage_options')) {  // Only apply to non-admin users
+        remove_menu_page('themes.php');           // Remove Appearance
+        remove_menu_page('users.php');            // Remove Users
+        remove_menu_page('tools.php');            // Remove Tools
+        remove_menu_page('woocommerce');          // Remove WooCommerce
+    }
+}
+add_action('admin_menu', 'remove_menu_items_for_non_admins');
 
 function custom_dashboard_help() {
     $storelocator_url  = "https://snacklab.bcitwebdeveloper.ca/wp-content/uploads/2024/10/how-to-use-storeLocator.mp4";
