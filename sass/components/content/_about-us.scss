@@ -13,4 +13,19 @@
             
         }
     }
+    .our-teams{
+        h2{
+            text-align: center;
+        }
+        .img-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            img{
+                height: 20rem;
+                max-width: 20rem;
+            }
+        }
+    }
 }

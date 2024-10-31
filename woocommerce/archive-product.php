@@ -36,43 +36,33 @@ do_action('woocommerce_before_main_content');
  *
  * @hooked woocommerce_product_taxonomy_archive_header - 10
  */
-do_action('woocommerce_shop_loop_header');
+// do_action('woocommerce_shop_loop_header');
 
 // Add the filter menu here
 ?>
 <!-- Filter Menu -->
 <?php
-if (is_post_type_archive('product')) {
-	$product_page_id = wc_get_page_id('shop'); // Get the ID of the shop page
-	if (has_post_thumbnail($product_page_id)) {
-		echo '<div class="products-page-banner">';
-		echo get_the_post_thumbnail($product_page_id, 'full'); // Change 'full' to your desired image size
-		echo '</div>';
-	}
-}
+// if (is_post_type_archive('product')) {
+// 	$product_page_id = wc_get_page_id('shop'); // Get the ID of the shop page
+// 	if (has_post_thumbnail($product_page_id)) {
+// 		echo '<div class="products-page-banner">';
+// 		echo get_the_post_thumbnail($product_page_id, 'full'); // Change 'full' to your desired image size
+// 		echo '</div>';
+// 	}
+// }
 ?>
-<div class="filter-menu">
-    <!-- Dropdown toggle button for small screens -->
-    <button id="dropdown-toggle" class="dropdown-button">Filter Menu</button>
-    
-    <!-- Dropdown content (buttons) -->
-    <div id="dropdown-content" class="dropdown-content">
-        <button class="filter-button" data-filter="*">All Items</button>
-        <?php
-        $terms = get_terms(array(
-            'taxonomy' => 'product_cat',
-            'hide_empty' => true,
-            'exclude' => array(), // Add slugs to exclude if necessary
-        ));
+<header class="entry-header">
+	<h1 class="entry-title-hero"><?php echo get_the_title(124) ?></h1>
+		<?php if (is_post_type_archive('product')): 
+			$product_page_id = wc_get_page_id('shop');?>
+		<div class="hero-picture" >
+			<?php echo get_the_post_thumbnail($product_page_id, 'full') ?>
+			<div class ="hero-img-overlay"></div>
+		</div>
+		<?php endif; ?>
+</header> 
 
-        if (! empty($terms) && ! is_wp_error($terms)) {
-            foreach ($terms as $term) {
-                echo '<button class="filter-button" data-filter=".' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</button>';
-            }
-        }
-        ?>
-    </div>
-</div>
+
 
 <?php
 
@@ -87,11 +77,33 @@ if (woocommerce_product_loop()) {
 	 */
 	do_action('woocommerce_before_shop_loop');
 
-	?><div class="products-container"><?php
+	?><div class="products-container"><?php ?>
+
+		<div class="filter-menu">
+			<!-- Dropdown toggle button for small screens -->
+			<button id="dropdown-toggle" class="dropdown-button">Filter Menu</button>
+			
+			<!-- Dropdown content (buttons) -->
+			<div id="dropdown-content" class="dropdown-content">
+				<button class="filter-button" data-filter="*">All Items</button>
+				<?php
+				$terms = get_terms(array(
+					'taxonomy' => 'product_cat',
+					'hide_empty' => true,
+					'exclude' => array(), // Add slugs to exclude if necessary
+				));
+
+				if (! empty($terms) && ! is_wp_error($terms)) {
+					foreach ($terms as $term) {
+						echo '<button class="filter-button" data-filter=".' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</button>';
+					}
+				}
+				?>
+			</div>
+		</div>
+	<?php
 	// Add the products-grid container
 	echo '<ul class="products-grid">';
-
-
 
 	if (wc_get_loop_prop('total')) {
 		while (have_posts()) {

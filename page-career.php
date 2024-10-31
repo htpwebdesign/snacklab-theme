@@ -16,14 +16,14 @@ get_header();
         the_post();
         ?>
         <header class="entry-header">
-             <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+             <?php the_title('<h1 class="entry-title-hero">', '</h1>'); ?>
              <?php if (has_post_thumbnail()) : ?>
                 <div class="hero-picture" >
                     <?php the_post_thumbnail(); ?>
+                    <div class ="hero-img-overlay"></div>
                 </div>
                 <?php endif; ?>
         </header>
-        <div class ="hero-img-overlay"></div>
             
 
         <div class="content-wrapper">
