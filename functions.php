@@ -247,9 +247,6 @@ add_filter('login_headertitle', 'snacklab_custom_login_logo_url_title');
 
 
 
-
-
-
 /**
  * Implement the Custom Header feature.
  */
