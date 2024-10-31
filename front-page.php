@@ -40,8 +40,7 @@ get_header();
 					echo '</div>';
 				}
 				echo '</div>';
-				// Pagination
-				echo '<div class="swiper-pagination"></div>';
+
 				// Navigation buttons
 				echo '<button class="swiper-button-prev"></button>';
 				echo '<button class="swiper-button-next"></button>';
