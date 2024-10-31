@@ -312,10 +312,10 @@ function add_custom_dashboard_widget() {
 // }
 
 function custom_dashboard_help() {
-    $storelocator_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/how-to-use-storeLocator.mp4";
-    $job_post_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/Add-Job-Post.mp4";
-    $acf_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/Where-to-edit-content.mp4";
-    $product_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/Adding-product.mp4";
+    $storelocator_url  = "http://snacklab.bcitwebdeveloper.ca/wordpress-snackLab/wp-content/uploads/2024/10/how-to-use-storeLocator.mp4";
+    $job_post_url  = "http://snacklab.bcitwebdeveloper.ca/wordpress-snackLab/wp-content/uploads/2024/10/Add-Job-Post.mp4";
+    $acf_url  = "http://snacklab.bcitwebdeveloper.ca/wordpress-snackLab/wp-content/uploads/2024/10/Where-to-edit-content.mp4";
+    $product_url  = "http://snacklab.bcitwebdeveloper.ca/wordpress-snackLab/wp-content/uploads/2024/10/Adding-product.mp4";
 
     echo '<p>Watch the video below to learn how to edit job posts:</p>';
     echo '<video width="560" height="315" controls>
