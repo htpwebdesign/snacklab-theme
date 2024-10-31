@@ -16,11 +16,11 @@ get_header();
 	<section class="error-404 not-found">
 		<header class="page-header">
 			<h1 class="page-title"><?php esc_html_e('You are not supposed to be here!', 'snacklab-theme'); ?></h1>
-			<p><a href="<?php echo home_url(); ?>">Go get some SNACK<span class="color-orange">LAB</span></p></a>
 		</header><!-- .page-header -->
-
+		
 		<div class="page-content">
-				<img src="http://localhost/snacklab/wp-content/uploads/2024/10/donut-404-nobackground-1.png" alt="404 Donut Image">
+			<img src="http://localhost/snacklab/wp-content/uploads/2024/10/donut-404-nobackground-1.png" alt="404 Donut Image">
+			<p><a href="<?php echo home_url(); ?>">Go get some<br>SNACK<span class="color-orange">LAB</span></p></a>
 		</div><!-- .page-content -->
 	</section><!-- .error-404 -->
 

@@ -1,20 +1,58 @@
 .error-404 {
     h1 {
         text-align: center;
-
+        font-size: 2.5rem;
     }
+
+    p {
+        text-align: center;
+        @include work-sans;
+        color: $color_charcoal;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
     img {
-        max-width: 30rem;
+        width: 30rem;
         text-align: center;
     }
+
     .page-content {
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
     a {
+        color: $color_charcoal;
+    
+        &:hover {
+            color: $color_terracota;
+        }
+    
         .color-orange {
             color: $color_terracota;
         }
+    
+        &:hover .color-orange {
+            color: $color_charcoal; // Override color for .color-orange specifically on hover
+        }
+    }
+    
+    
+    }
+    
+    .page-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 37.5rem) {
+    .error-404 {
+        .page-content {
+            flex-direction: row;
+            justify-content: center;
+    }
+
     }
 }
