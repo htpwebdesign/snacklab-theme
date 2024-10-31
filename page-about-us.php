@@ -1,14 +1,8 @@
 <?php
-
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * The template for displaying About Us pages
+ * 
+ * 
  *
  * @package Snack_Lab
  */
@@ -34,35 +28,43 @@ get_header();
 					echo '<p>'.$intro.'</p>';
 				}?>
 			<?php
-			//Meeting the team!			
-			// $title_1 = get_field('title_1');
-			// if($title_1){
-			// 	echo '<h2>'.$title_1.'</h2>';
-			// }
 
-			// need to pull images somehow
-			// $team_member = get_field('team_member');
-			
-			?>
-			<div id="our-baking">
-				<?php
-				$title_2 = get_field('title_2');
-				if($title_2){
-					echo '<h2>'.$title_2.'</h2>';
-				} 
-				
-				$paragraph_about = get_field('paragraph_about');
-				if($title_2){
-					echo '<p>'.$paragraph_about.'</p>';
-				}?>
+			//Meeting the team!			
+			$title_1 = get_field('title_1');
+			if($title_1){
+				?>
+				<div class="our-teams">
+					<?php
+					echo '<h2>'.$title_1.'</h2>';
+					// need to pull images somehow
+					$team_members = get_field('team_members');
+					if( $team_members ) {
+						?>
+						<div class ="img-wrapper">
+							<?php
+							foreach( $team_members as $img ) {
+								echo'<img src="' . esc_url($img) . '" alt="Developer">';
+							}?>
+						</div>
+					<?php } ?>
 				</div>
-			<?php
+			 <?php } ?>
+
+			 <?php
+				$title_2 = get_field('title_2');
+				if($title_2){ ?>
+					<div id="our-baking">
+						<?php echo '<h2>'.$title_2.'</h2>';
+							$paragraph_about = get_field('paragraph_about');
+							if($paragraph_about){
+								echo '<p>'.$paragraph_about.'</p>';
+							}?>
+					</div>
+				<?php } 
 			endwhile; // End of the loop.
 			?>
-		</div>
-
+			</div>
 </main><!-- #main -->
-
 <?php
 
 get_footer();

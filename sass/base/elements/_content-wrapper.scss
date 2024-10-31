@@ -9,14 +9,10 @@
 
 @media (min-width: 47rem) {
   .content-wrapper{
-    p{
+    p,.wp-block-group{
         margin: 0 auto;
         width: 40rem;
     }
-  }
-  .wp-block-group{
-      width: 35rem;
-      margin: 0 auto;
   }
 }
 
