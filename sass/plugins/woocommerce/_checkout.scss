@@ -30,7 +30,7 @@
 	font-size: 2rem;
 }
 
-.wp-block-image{
+.wp-block-image {
 	.wp-image-380 {
 		width: 8rem;
 		fill: $color_charcoal;
@@ -41,12 +41,34 @@
 .wp-block-woocommerce-empty-cart-block {
 	h2 {
 		margin: 6rem 0;
+
 		a {
 			text-decoration: none;
 			color: $color_charcoal;
 		}
+
 		a:hover {
 			color: $color_terracota;
 		}
+	}
+}
+
+.wc-block-components-button__text {
+	color: $color_white;
+	@include work-sans;
+	background-color: $color_charcoal;
+	padding: .5rem 1rem;
+	font-weight: 600;
+
+	&:hover {
+		color: $color_terracota;
+		background-color: $color_white;
+	}
+}
+
+.wc-block-checkout__actions_row {
+	button {
+		border: none;
+		background-color: transparent;
 	}
 }
