@@ -214,6 +214,40 @@ function snacklab_add_cart_count_to_menu($items, $args)
 }
 add_filter('wp_nav_menu_items', 'snacklab_add_cart_count_to_menu', 10, 2);
 
+// custom logo to the WordPress login page
+function snacklab_custom_login_logo()
+{
+	echo '<style type="text/css">
+		h1 a {
+			background-image: url(https://snacklab.bcitwebdeveloper.ca/wp-content/uploads/2024/10/cropped-snacklab.png) !important;
+			background-size: contain !important;
+			width: 100% !important;
+			height: 100px !important;
+		}
+	</style>';
+}
+add_action('login_head', 'snacklab_custom_login_logo');
+
+// custom logo URL to the WordPress login page
+
+function snacklab_custom_login_logo_url()
+{
+	return home_url();
+}
+add_filter('login_headerurl', 'snacklab_custom_login_logo_url');
+
+// custom logo URL title to the WordPress login page
+
+function snacklab_custom_login_logo_url_title()
+{
+	return get_bloginfo('name');
+}
+
+add_filter('login_headertitle', 'snacklab_custom_login_logo_url_title');
+
+
+
+
 
 
 /**
@@ -261,3 +295,51 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 // Remove the product sorting dropdown
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+
+function add_custom_dashboard_widget() {
+    wp_add_dashboard_widget(
+        'custom_help_widget', // Widget ID
+        'If you need help! Check these vidoes!',  // Widget title
+        'custom_dashboard_help' // Callback function
+    );
+}
+
+// function custom_dashboard_help() {
+//     echo '<p>Watch the video below to learn how to edit posts:</p>';
+//     echo '<iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+// }
+
+function custom_dashboard_help() {
+    $storelocator_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/how-to-use-storeLocator.mp4";
+    $job_post_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/Add-Job-Post.mp4";
+    $acf_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/Where-to-edit-content.mp4";
+    $product_url  = "http://localhost/wordpress-snackLab/wp-content/uploads/2024/10/Adding-product.mp4";
+
+    echo '<p>Watch the video below to learn how to edit job posts:</p>';
+    echo '<video width="560" height="315" controls>
+            <source src="' . esc_url($job_post_url) . '" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>';
+
+	echo '<p>Watch the video below to learn how to edit content on each pages:</p>';
+	echo '<video width="560" height="315" controls>
+			<source src="' . esc_url($acf_url) . '" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>';
+
+	echo '<p>Watch the video below to learn how to add products:</p>';
+	echo '<video width="560" height="315" controls>
+			<source src="' . esc_url($product_url) . '" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>';
+
+	echo '<p>Watch the video below to learn how to add new location:</p>';
+	echo '<video width="560" height="315" controls>
+			<source src="' . esc_url($storelocator_url) . '" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>';
+}
+
+add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');

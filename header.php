@@ -30,7 +30,6 @@
 		<header id="masthead" class="site-header">
 			<nav id="site-navigation" class="main-navigation">
 				<div class="site-branding">
-					<h1>
 						<h1>
 							<a href="<?php echo home_url(); ?>">
 								<?php the_field('site_title', 31); ?>
