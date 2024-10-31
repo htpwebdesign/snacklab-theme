@@ -1,6 +1,7 @@
-.products-container{
+.products-container {
 	background-color: white;
 }
+
 .products-grid {
 	margin: 0;
 	padding: 0;
@@ -70,4 +71,21 @@
 	.products-grid {
 		width: 88rem;
 	}
+}
+
+.related.products {
+	display: none;
+}
+
+#tab-description {
+	display: none;
+}
+
+#tab-description.woocommerce-Tabs-panel.woocommerce-Tabs-panel--description.panel.entry-content.wc-tab {
+	display: none;
+}
+
+.product.type-product {
+	max-width: 50rem;
+	margin: 0 auto;
 }
