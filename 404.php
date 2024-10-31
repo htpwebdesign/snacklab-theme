@@ -19,7 +19,7 @@ get_header();
 		</header><!-- .page-header -->
 		
 		<div class="page-content">
-			<img src="http://localhost/snacklab/wp-content/uploads/2024/10/donut-404-nobackground-1.png" alt="404 Donut Image">
+			<img src="https://snacklab.bcitwebdeveloper.ca/wp-content/uploads/2024/10/file.png" alt="404 Donut Image">
 			<p><a href="<?php echo home_url(); ?>">Go get some<br>SNACK<span class="color-orange">LAB</span></p></a>
 		</div><!-- .page-content -->
 	</section><!-- .error-404 -->
