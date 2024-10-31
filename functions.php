@@ -261,3 +261,36 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 // Remove the product sorting dropdown
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+
+function add_custom_dashboard_widget() {
+    wp_add_dashboard_widget(
+        'custom_help_widget', // Widget ID
+        'How to Edit Posts',  // Widget title
+        'custom_dashboard_help' // Callback function
+    );
+}
+
+// function custom_dashboard_help() {
+//     echo '<p>Watch the video below to learn how to edit posts:</p>';
+//     echo '<iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+// }
+
+function custom_dashboard_help() {
+    $video_url = 'https://snacklab.bcitwebdeveloper.ca/wp-content/uploads/2024/10/snacklabloading.webp'; 
+
+    echo '<p>Watch the video below to learn how to edit posts:</p>';
+    echo '<video width="560" height="315" controls>
+            <source src="' . esc_url($video_url) . '" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>';
+
+		echo '<p>Watch the video below to learn how to edit posts:</p>';
+		echo '<video width="560" height="315" controls>
+				<source src="' . esc_url($video_url) . '" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>';
+}
+
+add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');
