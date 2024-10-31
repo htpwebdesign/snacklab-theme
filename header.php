@@ -30,26 +30,26 @@
 		<header id="masthead" class="site-header">
 			<nav id="site-navigation" class="main-navigation">
 				<div class="site-branding">
-						<h1>
-							<a href="<?php echo home_url(); ?>">
-								<?php the_field('site_title', 31); ?>
-							</a>
-						</h1>
+					<h1>
+						<a href="<?php echo home_url(); ?>">
+							<?php the_field('site_title', 31); ?>
+						</a>
+					</h1>
 
-						<?php
-						$snacklab_theme_description = get_bloginfo('description', 'display');
-						if ($snacklab_theme_description || is_customize_preview()) :
-						?>
-							<p class="site-description"><?php echo $snacklab_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-														?></p>
-						<?php endif; ?>
+					<?php
+					$snacklab_theme_description = get_bloginfo('description', 'display');
+					if ($snacklab_theme_description || is_customize_preview()) :
+					?>
+						<p class="site-description"><?php echo $snacklab_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+													?></p>
+					<?php endif; ?>
 				</div><!-- .site-branding -->
 
 				<!-- Marc Initial Commit -->
 
 
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<input type="checkbox" role="button" aria-label="Display the menu" class="menu">
+				<button class="menu-toggle" role="button" aria-controls="primary-menu" aria-expanded="false">
+					<input type="checkbox" aria-label="Display the menu" class="menu">
 				</button>
 				<?php
 				wp_nav_menu(
@@ -60,5 +60,5 @@
 				);
 				?>
 			</nav><!-- #site-navigation -->
-    </div>
-		</header><!-- #masthead -->
+	</div>
+	</header><!-- #masthead -->
