@@ -2,7 +2,7 @@
     margin: 10rem 0;
 
     h2 {
-        color: $color_mustard;
+        color: $color_dmustard;
         font-size: 2.2rem;
         text-transform: uppercase;
         margin: 3rem;
@@ -61,11 +61,14 @@
     }
 
     .review-cta { 
+        display: flex;
+        justify-content: flex-end;
             h2 {
-                color: $color_dblue;
+                width: fit-content;
+                color: $color_olive;
                 margin: 3rem;
                 padding: 1rem 0;
-                text-align: right;
+                text-transform: uppercase;
                 &:hover {
                     text-decoration: underline;
                 }

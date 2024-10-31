@@ -20,10 +20,10 @@ get_header();
              <?php if (has_post_thumbnail()) : ?>
                 <div class="hero-picture" >
                     <?php the_post_thumbnail(); ?>
+                    <div class ="hero-img-overlay"></div>
                 </div>
                 <?php endif; ?>
         </header>
-        <div class ="hero-img-overlay"></div>
             
 
         <div class="content-wrapper">
