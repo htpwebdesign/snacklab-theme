@@ -214,6 +214,40 @@ function snacklab_add_cart_count_to_menu($items, $args)
 }
 add_filter('wp_nav_menu_items', 'snacklab_add_cart_count_to_menu', 10, 2);
 
+// custom logo to the WordPress login page
+function snacklab_custom_login_logo()
+{
+	echo '<style type="text/css">
+		h1 a {
+			background-image: url(https://snacklab.bcitwebdeveloper.ca/wp-content/uploads/2024/10/cropped-snacklab.png) !important;
+			background-size: contain !important;
+			width: 100% !important;
+			height: 100px !important;
+		}
+	</style>';
+}
+add_action('login_head', 'snacklab_custom_login_logo');
+
+// custom logo URL to the WordPress login page
+
+function snacklab_custom_login_logo_url()
+{
+	return home_url();
+}
+add_filter('login_headerurl', 'snacklab_custom_login_logo_url');
+
+// custom logo URL title to the WordPress login page
+
+function snacklab_custom_login_logo_url_title()
+{
+	return get_bloginfo('name');
+}
+
+add_filter('login_headertitle', 'snacklab_custom_login_logo_url_title');
+
+
+
+
 
 
 /**
