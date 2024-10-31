@@ -134,7 +134,7 @@ get_header();
 				if (!empty($card_image_id)) {  // Ensure that card_image_id is not empty
 					$image_url = wp_get_attachment_image_url($card_image_id, 'medium');
 					if ($image_url) {
-						echo '<img loading="lazy" src="' . esc_url($image_url) . '" alt="' . esc_attr($card_title) . '">';
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($card_title) . '">';
 					}
 				}
 				if ($card_title) {
