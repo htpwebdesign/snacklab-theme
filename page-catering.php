@@ -42,12 +42,12 @@ get_header();
 					$images = get_field('catering_gallery');
 					if ($images) {
 						foreach ($images as $image) {
-							echo '<div class="catering-item">'; // Add a wrapper div around each item
+							echo '<div class="catering-item">';
 							echo wp_get_attachment_image($image['ID'], 'full');
 							if (!empty($image['description'])) {
 								echo '<div class="catering-text-wrapper"><p>' . esc_html($image['description']) . '</div></p>';
 							}
-							echo '</div>'; // Close the wrapper div
+							echo '</div>';
 						}
 					}
 					?>

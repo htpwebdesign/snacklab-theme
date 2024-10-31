@@ -54,6 +54,9 @@
     button.active {
         background-color: $color_terracota;
     }
+    button:focus {
+        background-color: $color_terracota;
+    }
 }
 
 .dropdown-content.show {
