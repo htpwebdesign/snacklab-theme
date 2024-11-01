@@ -51,14 +51,14 @@
   width: 100%;
   .cta-home-one {
     margin-right: 1rem;
+    color: #fff;
     align-items: center;
     background-clip: padding-box;
-    background-color: #c97c5d;
+    background-color: #a16a54;
     border: 1px solid transparent;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
-    color: #000000;
     display: inline-flex;
     @include work-sans;
     font-size: 1rem;
@@ -101,13 +101,13 @@
   .cta-home-two {
     margin-right: 1rem;
     align-items: center;
+    color: #fff;
     background-clip: padding-box;
-    background-color: #8a9bae;
+    background-color: #5f758f;
     border: 1px solid transparent;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
-    color: #000000;
     display: inline-flex;
     @include work-sans;
     font-size: 1rem;
@@ -284,14 +284,14 @@
       display: inline-block;
       margin: 1rem 0;
       padding: 0.5rem 1rem;
-      background-color: #c97c5d;
+      background-color: #603c2c;
       color: #fff;
       text-decoration: none;
       border-radius: 0.25rem;
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: #d18e6e;
+        background-color: #603c2c;
       }
     }
   }

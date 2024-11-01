@@ -1,83 +1,83 @@
 .products-container {
-	background-color: white;
+  background-color: white;
 }
 
 .products-grid {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 
-	li {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-		.add_to_cart_button,
-		.ajax_add_to_cart,
-		.product_type_simple {
-			display: none;
-		}
+    .add_to_cart_button,
+    .ajax_add_to_cart,
+    .product_type_simple {
+      display: none;
+    }
 
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin: 1rem 1rem 0;
-		position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 1rem 0;
+    padding: 0 1rem;
+    position: relative;
 
-		h2 {
-			font-size: 1rem;
-			color: $color_terracota;
-			@include work-sans;
-			font-weight: 900;
-			margin-bottom: 2.5rem;
-		}
+    h2 {
+      font-size: 1rem;
+      color: $color_terracota;
+      @include work-sans;
+      font-weight: 900;
+      margin-bottom: 2.5rem;
+    }
 
-		img {
-			width: 20rem;
-			border-radius: 15px;
-		}
+    img {
+      width: 20rem;
+      border-radius: 15px;
+    }
 
-		.price {
-			display: none;
-		}
-
-	}
+    .price {
+      display: none;
+    }
+  }
 }
 
 .woocommerce-message,
 .woocommerce-breadcrumb {
-	display: none;
+  display: none;
 }
 
 .products-grid {
-	width: 22rem;
-	margin: 0 auto;
+  width: 22rem;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 44rem) {
-	.products-grid {
-		width: 44rem;
-	}
+  .products-grid {
+    width: 44rem;
+  }
 }
 
 @media screen and (min-width: 66rem) {
-	.products-grid {
-		width: 66rem;
-	}
+  .products-grid {
+    width: 66rem;
+  }
 }
 
 @media screen and (min-width: 88rem) {
-	.products-grid {
-		width: 88rem;
-	}
+  .products-grid {
+    width: 88rem;
+  }
 }
 
 .related.products {
-	display: none;
+  display: none;
 }
 
 .product.type-product {
-	max-width: 50rem;
-	margin: 0 auto;
+  max-width: 50rem;
+  margin: 0 auto;
 }
