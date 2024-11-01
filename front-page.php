@@ -40,8 +40,7 @@ get_header();
 					echo '</div>';
 				}
 				echo '</div>';
-				// Pagination
-				echo '<div class="swiper-pagination"></div>';
+
 				// Navigation buttons
 				echo '<button class="swiper-button-prev"></button>';
 				echo '<button class="swiper-button-next"></button>';
@@ -75,22 +74,18 @@ get_header();
 			$cta_home_one = get_field('cta_home_one');
 
 			if ($cta_home_one) {
-				echo '<button class="cta-home-one">';
 
-				echo '<a href="' . esc_url($cta_home_one) . '">View Menu</a>';
 
-				echo '</button>';
+				echo '<a href="' . esc_url($cta_home_one) . '" class="cta-home-one">View Menu</a>';
 			}
 
 			// ACF Link field 'cta_home_two'
 			$cta_home_two = get_field('cta_home_two');
 
 			if ($cta_home_two) {
-				echo '<button class="cta-home-two">';
 
-				echo '<a href="' . esc_url($cta_home_two) . '">See Our Locations</a>';
 
-				echo '</button>';
+				echo '<a href="' . esc_url($cta_home_two) . '" class="cta-home-two">See Our Locations</a>';
 			}
 
 			echo '</div>';
@@ -134,7 +129,7 @@ get_header();
 				if (!empty($card_image_id)) {  // Ensure that card_image_id is not empty
 					$image_url = wp_get_attachment_image_url($card_image_id, 'medium');
 					if ($image_url) {
-						echo '<img loading="lazy" src="' . esc_url($image_url) . '" alt="' . esc_attr($card_title) . '">';
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($card_title) . '">';
 					}
 				}
 				if ($card_title) {
