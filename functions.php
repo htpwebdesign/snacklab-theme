@@ -318,7 +318,7 @@ function remove_unwanted_dashboard_widgets() {
 	// Example ID for Tutorials widget
 	remove_meta_box('themeisle', 'dashboard', 'normal'); 
 
-	remove_meta_box("dashboard_quick_press", 'dashboard', 'normal'); 
+	remove_meta_box("dashboard_quick_press", 'dashboard', 'side'); 
 }
 add_action('wp_dashboard_setup', 'remove_unwanted_dashboard_widgets');
 
