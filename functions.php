@@ -286,6 +286,14 @@ if (class_exists('WooCommerce')) {
  */
 require get_template_directory() . '/inc/cpt.php';
 
+/**
+* Lower Yoast SEO Metabox location
+* */
+function yoast_to_bottom() {
+	return 'low';
+}
+add_filter('wpseo_metabox_prio', 'yoast_to_bottom');
+
 
 // Remove the result count (e.g. "Showing 1–10 of 50 results")
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
