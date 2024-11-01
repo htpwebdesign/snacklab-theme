@@ -65,13 +65,20 @@
         justify-content: flex-end;
             h2 {
                 width: fit-content;
-                color: $color_olive;
+                color: $color_white;
+                background-color: $color_olive;
                 margin: 3rem;
-                padding: 1rem 0;
+                padding: 1rem 2rem;
+                border-radius: 1rem;
                 text-transform: uppercase;
                 &:hover {
                     text-decoration: underline;
+                    background-color: #6d7973cb;
                 }
+                &:focus {
+                    border: solid 2px $color_terracota;
+                }
+
             }
         
     }
