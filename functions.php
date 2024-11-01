@@ -307,7 +307,7 @@ function remove_unwanted_dashboard_widgets() {
     remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
 
     // Remove "Welcome" panel
-    // remove_action('welcome_panel', 'wp_welcome_panel');
+    remove_action('welcome_panel', 'wp_welcome_panel');
 
     // Remove "WordPress Events and News" widget
     remove_meta_box('dashboard_primary', 'dashboard', 'side');
@@ -315,8 +315,10 @@ function remove_unwanted_dashboard_widgets() {
     // Remove "Activity" widget
     remove_meta_box('dashboard_activity', 'dashboard', 'normal');
 
-	remove_meta_box('themeisle', 'dashboard', 'normal'); // Example ID for Tutorials widget
-    remove_meta_box('dashboard_guides', 'dashboard', 'normal');    // 
+	// Example ID for Tutorials widget
+	remove_meta_box('themeisle', 'dashboard', 'normal'); 
+
+	remove_meta_box("dashboard_quick_press", 'dashboard', 'side'); 
 }
 add_action('wp_dashboard_setup', 'remove_unwanted_dashboard_widgets');
 
@@ -328,11 +330,9 @@ add_action('admin_menu', 'remove_menu_pages');
 
 
 function remove_menu_items_for_non_admins() {
-    if (!current_user_can('manage_options')) {  // Only apply to non-admin users
-        remove_menu_page('themes.php');           // Remove Appearance
-        remove_menu_page('users.php');            // Remove Users
-        remove_menu_page('tools.php');            // Remove Tools
-        remove_menu_page('woocommerce');          // Remove WooCommerce
+    if (!current_user_can('manage_options')) {  
+		remove_menu_page('edit.php');           
+		remove_menu_page('edit-comments.php');
     }
 }
 add_action('admin_menu', 'remove_menu_items_for_non_admins');
